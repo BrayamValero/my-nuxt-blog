@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <p>Custom Layout</p>
-    <hr/>
-    <slot />
-  </div>
+    <div>
+        <p>Custom Layout</p>
+        <hr />
+        <slot />
+    </div>
 </template>
