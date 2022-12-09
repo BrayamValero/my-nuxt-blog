@@ -1,4 +1,12 @@
 <script lang="ts" setup>
+// [Nuxt Content] => Querying blog posts content
+const { data: posts } = await useAsyncData('posts', () => queryContent('blog').find())
+
+// [Nuxt - LazyAsyncData] => Querying Github Repositories
+const { pending, data: repositories } = useLazyAsyncData('repositories', () =>
+    $fetch('https://api.github.com/users/brayamvalero/repos')
+)
+
 useHead({
     title: 'Home',
 })
@@ -8,12 +16,12 @@ useHead({
     <div class="Home">
         <h1>Home Page</h1>
         <p>Lorem Ipsum</p>
-        <hr>
-        <!-- [Nuxt Content] => ContentDoc -->
-        <ContentDoc class="mt-3 p-3 bg-gray-300" />
+        <hr class="my-5" />
+        <h2 class="font-bold my-3">My Repositories</h2>
+        <UserRepositories :repositories="repositories" />
+        <h2 class="font-bold my-3">My Posts</h2>
+        <UserPosts :posts="posts" />
     </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
