@@ -16,7 +16,7 @@ useHead({
         <div class="bg-gray-100 rounded p-5 mb-10">
             <NuxtLink
                 v-for="tag in post.tags"
-                :to="'/blog/categories/' + tag"
+                :to="'/blog/category/' + tag"
                 class="font-bold inline-block bg-gray-800 rounded text-white mb-2 px-2 py-1"
             >
                 {{ tag }}

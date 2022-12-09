@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script lang="ts" setup></script>
 
 <template>
     <div class="Main">
@@ -10,8 +9,6 @@
         <TheFooter />
     </div>
 </template>
-
-
 
 <style lang="scss" scoped>
 .Main {
@@ -24,4 +21,3 @@
     }
 }
 </style>
-
