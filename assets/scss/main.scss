@@ -1,0 +1,25 @@
+:root {
+    --color: #243746;
+    --color-primary: #d8002d;
+    --color-secondary: #0e2233;
+    --bg: #f6f8fa;
+    --bg-secondary: #fff;
+    --border-color: #ddd;
+}
+.dark {
+    --color: #ebf4f1;
+    --color-primary: #d8002d;
+    --color-secondary: #fdf9f3;
+    --bg: #091a28;
+    --bg-secondary: #071521;
+    --border-color: #0d2538;
+}
+body {
+    background-color: var(--bg);
+    color: var(--color);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1.5;
+    word-wrap: break-word;
+}

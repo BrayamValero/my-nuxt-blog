@@ -13,5 +13,6 @@ export default defineNuxtConfig({
         componentName: 'ColorScheme',
         classPrefix: '',
         storageKey: 'nuxt-color-mode'
-    }
+    },
+    css: ['/assets/scss/main.scss'],
 })

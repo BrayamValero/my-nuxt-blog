@@ -4,7 +4,8 @@ date: 2020-12-26
 description: Third post description
 # image: image_url
 # provider: img_hosting_provider
-tags: [programming]
+tags: [default, gaming]
+author: 'Brayam Valero'
 ---
 
 # THIRD POST

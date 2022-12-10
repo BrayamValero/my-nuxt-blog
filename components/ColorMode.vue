@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 type Theme = 'light' | 'dark'
 const setColorTheme = (newTheme: Theme) => {
     useColorMode().preference = newTheme
