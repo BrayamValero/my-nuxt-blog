@@ -14,5 +14,17 @@ export default defineNuxtConfig({
         classPrefix: '',
         storageKey: 'nuxt-color-mode'
     },
-    css: ['/assets/scss/main.scss'],
+    css: ['~/assets/css/main.css'],
+    postcss: {
+        plugins: {
+            // Tailwind Nesting
+            'postcss-import': true,
+            'tailwindcss/nesting': {},
+            'postcss-nested': {},
+            // Then, Tailwind
+            tailwindcss: {},
+            autoprefixer: {},
+
+        },
+    },
 })

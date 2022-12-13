@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --color: #243746;
     --color-primary: #d8002d;
@@ -14,10 +18,15 @@
     --bg-secondary: #071521;
     --border-color: #0d2538;
 }
+
+html,
+body {
+    font-size: 16px;
+}
+
 body {
     background-color: var(--bg);
     color: var(--color);
-    font-size: 15px;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 1.5;
