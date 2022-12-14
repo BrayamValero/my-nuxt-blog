@@ -1,11 +1,12 @@
 ---
 title: Third Post Title
-date: 2020-12-26
 description: Third post description
-# image: image_url
-# provider: img_hosting_provider
 tags: [default, gaming]
 author: 'Brayam Valero'
+created-at: 2020-12-12
+updated-at: 2020-12-12
+# image: image_url
+# provider: img_hosting_provider
 ---
 
 # THIRD POST

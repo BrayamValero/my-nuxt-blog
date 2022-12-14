@@ -17,8 +17,7 @@ useHead({
 
 <template>
     <div class="Category">
-        <!-- <pre>{{ posts }}</pre> -->
-        <h2 class="font-bold my-3">My Posts - {{ slug }}</h2>
+        <h2 class="font-bold my-3">Categoria: {{ slug }}</h2>
         <UserPosts :posts="posts" />
     </div>
 </template>

@@ -1,11 +1,12 @@
 ---
 title: Second Post Title
-date: 2020-12-24
 description: Second post description
-# image: image_url
-# provider: img_hosting_provider
 tags: [programming]
 author: 'Brayam Valero'
+created-at: 2020-12-12
+updated-at: 2020-12-12
+# image: image_url
+# provider: img_hosting_provider
 ---
 
 # SECOND POST

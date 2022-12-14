@@ -16,10 +16,8 @@ useHead({
 
 <template>
     <div class="Blog">
-        <h1>Blog Page</h1>
-        <p>Lorem Ipsum</p>
-        <hr class="my-5" />
-        <input type="search" v-model="filter" />
+        <h2 class="font-bold">My Blog Posts</h2>
+        <input type="search" v-model="filter" class="border rounded my-3" placeholder="search" />
         <UserPosts :posts="posts" />
     </div>
 </template>

@@ -14,12 +14,9 @@ useHead({
 
 <template>
     <div class="Home">
-        <h1>Home Page</h1>
-        <p>Lorem Ipsum</p>
-        <hr class="my-5" />
         <h2 class="font-bold my-3">My Repositories</h2>
         <UserRepositories :repositories="repositories" />
-        <h2 class="font-bold my-3">My Posts</h2>
+        <h2 class="font-bold my-3">My Blog Posts</h2>
         <UserPosts :posts="posts" />
     </div>
 </template>
