@@ -3,8 +3,8 @@ title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos dolore
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos dolores itaque neque laudantium explicabo obcaecati vel enim nemo unde
 tags: [defaul, programming]
 author: 'Brayam Valero'
-created-at: 2020-12-12
-updated-at: 2020-12-12
+created_at: 2020-12-12
+updated_at: 2020-12-12
 # image: image_url
 # provider: img_hosting_provider
 ---

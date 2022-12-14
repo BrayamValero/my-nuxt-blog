@@ -3,8 +3,8 @@ title: Third Post Title
 description: Third post description
 tags: [default, gaming]
 author: 'Brayam Valero'
-created-at: 2020-12-12
-updated-at: 2020-12-12
+created_at: 2020-12-12
+updated_at: 2020-12-12
 # image: image_url
 # provider: img_hosting_provider
 ---

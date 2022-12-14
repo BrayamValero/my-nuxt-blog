@@ -9,8 +9,12 @@ const navigateToPost = () => {
     navigateTo(props.post._path)
 }
 
-const humanRedableDate = computed(() => {
-    return new Date(props.post.date).toDateString()
+const formatDate = computed(() => {
+    return new Date(props.post.created_at).toLocaleDateString('es', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
 })
 </script>
 
@@ -32,10 +36,8 @@ const humanRedableDate = computed(() => {
                 </NuxtLink>
             </h2>
             <p class="text-description line-clamp-1">{{ post.description }}</p>
-            <p class="text-caption mt-1">Publicado el {{ humanRedableDate }}</p>
+            <p class="text-caption mt-1">Publicado el {{ formatDate }}</p>
         </div>
-        <!-- Link -->
-        <!-- <NuxtLink :to="post._path" class="btn btn-primary"> Ver publicación </NuxtLink> -->
     </div>
 </template>
 
