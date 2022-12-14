@@ -19,57 +19,22 @@ const isPrivate = computed(() => {
 </script>
 
 <template>
-    <div class="RepositoryCard" @click="navigateToRepository">
-        <div class="RepositoryCard-header">
-            <p class="RepositoryCard-name">{{ repository.name }}</p>
-            <span class="RepositoryCard-private">{{ isPrivate }}</span>
+    <div class="RepositoryCard card cursor-pointer" @click="navigateToRepository">
+        <div class="card-header flex-between-center">
+            <p class="text-title">{{ repository.name }}</p>
+            <span class="badge bg-blue-400 text-white">{{ isPrivate }}</span>
         </div>
-        <div class="RepositoryCard-body">
-            <p class="RepositoryCard-description">{{ repository.description || 'No Description Available' }}</p>
+        <div class="card-body">
+            <p class="text-description">{{ repository.description || 'Repositorio de GitHub' }}</p>
         </div>
-        <div class="RepositoryCard-footer">
-            <p class="RepositoryCard-language">{{ repository.language || 'Sin Lenguajes' }}</p>
-            <p class="RepositoryCard-license">{{ repository.license ? repository.license.name : 'Sin licencia' }}</p>
+        <div class="card-footer flex-between-center">
+            <p class="text-small">{{ repository.language || 'Sin Lenguajes' }}</p>
+            <p class="text-small">{{ repository.license ? repository.license.name : 'Sin licencia' }}</p>
         </div>
     </div>
 </template>
 
 <style lang="postcss" scoped>
 .RepositoryCard {
-    @apply bg-white flex flex-col rounded-md shadow-lg shadow-gray-200/50 cursor-pointer;
-    &-header {
-        @apply flex justify-between items-center py-2 px-3;
-    }
-    &-name {
-        font-size: 1rem;
-        @apply font-bold text-gray-800;
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-    &-private {
-        font-size: 0.75rem;
-        @apply inline-block border rounded px-2 py-1 text-gray-600;
-    }
-    &-body {
-        @apply px-2 py-1;
-    }
-    &-description {
-        font-size: 0.875rem;
-        @apply text-gray-500;
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-    &-footer {
-        font-size: 0.75rem;
-        @apply flex justify-between items-center text-gray-500 mt-auto border-t-[1px] border-gray-100 py-2 px-3;
-    }
-    &-author::after {
-        content: '·';
-        margin: 0 0.25rem;
-    }
 }
 </style>

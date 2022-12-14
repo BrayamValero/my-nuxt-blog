@@ -16,65 +16,36 @@ const humanRedableDate = computed(() => {
 
 <template>
     <div class="BlogCard">
-        <img class="BlogCard-img" src="https://i.imgur.com/AD3MbBi.jpeg" alt="image" @click="navigateToPost" />
-        <!-- Body -->
-        <div class="BlogCard-body">
-            <!-- Image -->
-            <div class="BlogCard-categories">
+        <img
+            class="w-full h-36 object-cover cursor-pointer rounded-md"
+            src="https://i.imgur.com/AD3MbBi.jpeg"
+            alt="image"
+            @click="navigateToPost"
+        />
+        <div class="flex-1 my-4">
+            <div class="flex flex-wrap gap-2 mb-1">
                 <CategoryBadge v-for="tag in post.tags" :category="tag" />
             </div>
-            <h2 class="BlogCard-title">
+            <h2 class="text-title line-clamp-1">
                 <NuxtLink :to="post._path" class="block">
                     {{ post.title }}
                 </NuxtLink>
             </h2>
-            <h2 class="BlogCard-description">{{ post.description }}</h2>
+            <p class="text-description line-clamp-1">{{ post.description }}</p>
         </div>
-        <!-- Footer -->
-        <div class="BlogCard-footer">
-            <span class="BlogCard-author">{{ post.author }}</span>
-            <time class="BlogCard-date" :datetime="post.date">{{ humanRedableDate }}</time>
-        </div>
+        <!-- Link -->
+        <NuxtLink :to="post._path" class="btn btn-primary">
+            <!-- <font-awesome-icon icon="fa-solid fa-user-secret" /> -->
+            Ir al Post
+        </NuxtLink>
+        <ClientOnly>
+            <font-awesome-icon icon="fa-solid fa-user" />
+        </ClientOnly>
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .BlogCard {
-    @apply bg-white flex flex-col rounded-md shadow-lg shadow-gray-200/50;
-    &-img {
-        @apply object-cover cursor-pointer w-full h-36 rounded-tl-md rounded-tr-md;
-    }
-    &-body {
-        @apply p-3;
-    }
-    &-categories {
-        @apply flex flex-wrap;
-        > *:not(:last-child) {
-            @apply mr-2;
-        }
-    }
-    &-title {
-        font-size: 18px;
-        @apply font-bold text-gray-800 mt-2;
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-    &-description {
-        @apply text-gray-500 mb-2;
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-    &-footer {
-        font-size: 12px;
-        @apply text-gray-500 mt-auto border-t-[1px] border-gray-100 py-2 px-3;
-    }
-    &-author::after {
-        content: '·';
-        margin: 0 0.25rem;
-    }
+    @apply flex flex-col;
 }
 </style>

@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         classPrefix: '',
         storageKey: 'nuxt-color-mode'
     },
-    css: ['~/assets/css/main.css'],
+    css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
     postcss: {
         plugins: {
             // Tailwind Nesting
