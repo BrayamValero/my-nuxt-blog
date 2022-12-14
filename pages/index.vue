@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // [Nuxt Content] => Querying blog posts content
-const { data: posts } = await useAsyncData('posts', () => queryContent('blog').find())
+const { data: posts } = await useAsyncData('posts', () => queryContent('blog').limit(3).find())
 
 // [Nuxt - LazyAsyncData] => Querying Github Repositories
 const { pending, data: repositories } = useLazyAsyncData('repositories', () =>
