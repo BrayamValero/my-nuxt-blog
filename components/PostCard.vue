@@ -38,9 +38,8 @@ const humanRedableDate = computed(() => {
             <!-- <font-awesome-icon icon="fa-solid fa-user-secret" /> -->
             Ir al Post
         </NuxtLink>
-        <ClientOnly>
-            <font-awesome-icon icon="fa-solid fa-user" />
-        </ClientOnly>
+        <!-- Icons -->
+        <font-awesome-icon icon="fa-solid fa-user" />
     </div>
 </template>
 
