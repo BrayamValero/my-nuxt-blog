@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
     --color: #243746;
     --color-primary: #d8002d;
@@ -20,17 +22,91 @@
     --border-color: #0d2538;
 }
 
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-BookItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+    src: url('assets/fonts/Circular/CircularStd-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 html,
 body {
-    font-size: 16px;
+    font-family: 'Circular', sans-serif;
+    font-size: 1rem;
 }
 
 body {
     background-color: var(--bg);
     color: var(--color);
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 1.5;
+    line-height: 1.5;
     word-wrap: break-word;
 }
 
@@ -58,19 +134,23 @@ body {
 
     /* Badge */
     .badge {
-        @apply font-semibold text-[0.75rem] py-[0.25rem] px-[0.35rem] inline-block rounded leading-none;
+        @apply text-[12px] py-[4px] px-[5.6px] inline-block rounded leading-none;
+    }
+
+    .badge.badge-primary {
+        @apply bg-blue-600 text-white;
     }
 
     .btn {
-        @apply py-[.5rem] px-[.75rem] text-[.875rem] font-semibold shadow-sm transition ease-in-out duration-300 rounded whitespace-nowrap leading-snug;
+        @apply py-[8px] px-[12px] text-[14px] font-semibold shadow-sm transition ease-in-out duration-300 rounded whitespace-nowrap leading-snug;
     }
 
     .btn.btn-sm {
-        @apply py-[.375rem] px-[.625rem] text-[.75rem];
+        @apply py-[6px] px-[10px] text-[12px];
     }
 
     .btn.btn-lg {
-        @apply px-8 py-4 text-[1.125rem];
+        @apply px-8 py-4 text-[18px];
     }
 
     .btn-primary {
@@ -101,23 +181,23 @@ body {
 @layer utilities {
     /* Text utilities */
     .text-caption {
-        @apply text-[.6875rem] uppercase font-medium text-blue-500;
+        @apply text-[11px] uppercase font-medium text-blue-400;
     }
 
     .text-subtitle {
-        @apply text-[1rem] font-bold;
+        @apply text-[16px] font-bold;
     }
 
     .text-title {
-        @apply text-[1rem] font-bold text-gray-800;
+        @apply text-[18px] font-bold text-gray-800;
     }
 
     .text-description {
-        @apply text-[0.875rem] text-gray-500;
+        @apply text-[14px] text-gray-500 font-light;
     }
 
     .text-small {
-        @apply text-[0.75rem] text-gray-500;
+        @apply text-[12px] text-gray-500 font-medium;
     }
 
     /* Flex utilities */

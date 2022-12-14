@@ -22,13 +22,13 @@ const isPrivate = computed(() => {
     <div class="RepositoryCard card cursor-pointer" @click="navigateToRepository">
         <div class="card-header flex-between-center">
             <p class="text-title">{{ repository.name }}</p>
-            <span class="badge bg-blue-400 text-white">{{ isPrivate }}</span>
+            <span class="badge badge-primary">{{ isPrivate }}</span>
         </div>
         <div class="card-body">
             <p class="text-description">{{ repository.description || 'Repositorio de GitHub' }}</p>
         </div>
         <div class="card-footer flex-between-center">
-            <p class="text-small">{{ repository.language || 'Sin Lenguajes' }}</p>
+            <p class="text-small text-blue-400">{{ repository.language || 'Sin Lenguajes' }}</p>
             <p class="text-small">{{ repository.license ? repository.license.name : 'Sin licencia' }}</p>
         </div>
     </div>
