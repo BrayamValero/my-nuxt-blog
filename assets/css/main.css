@@ -181,15 +181,15 @@ body {
 @layer utilities {
     /* Text utilities */
     .text-caption {
-        @apply text-[11px] uppercase font-medium text-blue-400;
+        @apply text-[.6875rem] uppercase font-medium text-blue-400;
     }
 
     .text-subtitle {
-        @apply text-[16px] font-bold;
+        @apply text-[1rem] font-bold;
     }
 
     .text-title {
-        @apply text-[18px] font-bold text-gray-800;
+        @apply text-[1.125rem] font-bold text-gray-800;
     }
 
     .text-description {
@@ -197,7 +197,7 @@ body {
     }
 
     .text-small {
-        @apply text-[12px] text-gray-500 font-medium;
+        @apply text-[.75rem] text-gray-500;
     }
 
     /* Flex utilities */

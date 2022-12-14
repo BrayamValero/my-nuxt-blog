@@ -9,13 +9,7 @@ const navigateToPost = () => {
     navigateTo(props.post._path)
 }
 
-const formatDate = computed(() => {
-    return new Date(props.post.created_at).toLocaleDateString('es', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    })
-})
+const createdAtFormatted = computed(() => useFormattedDate(props.post.created_at))
 </script>
 
 <template>
@@ -36,7 +30,7 @@ const formatDate = computed(() => {
                 </NuxtLink>
             </h2>
             <p class="text-description line-clamp-1">{{ post.description }}</p>
-            <p class="text-caption mt-1">Publicado el {{ formatDate }}</p>
+            <p class="text-caption mt-1">Publicado el {{ createdAtFormatted }}</p>
         </div>
     </div>
 </template>

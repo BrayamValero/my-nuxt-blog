@@ -5,27 +5,23 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const humanRedableDate = computed(() => {
-    return new Date(props.post.date).toDateString()
-})
+const createdAtFormatted = computed(() => useFormattedDate(props.post.created_at))
 </script>
 
 <template>
-    <div class="PostHeader">
-        <div class="bg-gray-100 rounded p-5 mb-10">
-            <pre>{{ post }}</pre>
-            <NuxtLink
-                v-for="tag in post?.tags"
-                :to="'/blog/category/' + tag"
-                class="font-bold inline-block bg-gray-800 rounded text-white mb-2 px-2 py-1"
-            >
+    <div class="PostHeader mb-3">
+        <img
+            class="w-full h-36 object-cover cursor-pointer rounded-md shadow"
+            src="https://i.imgur.com/AD3MbBi.jpeg"
+            alt="image"
+        />
+        <div class="flex gap-2 my-3">
+            <NuxtLink v-for="tag in post?.tags" :to="'/blog/category/' + tag" class="badge badge-primary">
                 {{ tag }}
             </NuxtLink>
-            <h6 class="font-bold">{{ post.title }}</h6>
-
-            <p>{{ post.author }} - {{ post.date }} - {{ post.updated_at }}</p>
-            <NuxtLink :to="post._path" class="text-blue-500 font-bold"> Ir al Post </NuxtLink>
         </div>
+        <h1 class="text-title">{{ post.title }}</h1>
+        <p class="text-description">{{ post.author }} - {{ createdAtFormatted }}</p>
     </div>
 </template>
 

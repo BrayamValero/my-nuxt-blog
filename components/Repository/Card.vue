@@ -9,8 +9,16 @@ const navigateToRepository = () => {
     window.open(props.repository.html_url, '_blank')
 }
 
-const humanRedableDate = computed(() => {
-    return new Date(props.repository.updated_at).toDateString()
+const getLanguageColor = computed(() => {
+    const color: any = {
+        HTML: 'bg-orange-500',
+        JavaScript: 'bg-yellow-500',
+        PHP: 'bg-red-500',
+        Vue: 'bg-green-500',
+        React: 'bg-blue-500',
+        default: 'bg-gray-500',
+    }
+    return color[props.repository.language] || color['default']
 })
 
 const isPrivate = computed(() => {
@@ -28,7 +36,12 @@ const isPrivate = computed(() => {
             <p class="text-description">{{ repository.description || 'Repositorio de GitHub' }}</p>
         </div>
         <div class="card-footer flex-between-center">
-            <p class="text-small text-blue-400">{{ repository.language || 'Sin Lenguajes' }}</p>
+            <div class="flex items-center">
+                <div class="h-2.5 w-2.5 rounded-full mr-1" :class="[getLanguageColor]"></div>
+                <p class="text-small text-blue-400">
+                    {{ repository.language || 'Sin Lenguajes' }}
+                </p>
+            </div>
             <p class="text-small">{{ repository.license ? repository.license.name : 'Sin licencia' }}</p>
         </div>
     </div>
