@@ -5,7 +5,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const createdAtFormatted = computed(() => useFormattedDate(props.post.created_at))
+const createdAtFormatted = computed(() => useHumanRedableDate(props.post.created_at))
 </script>
 
 <template>
