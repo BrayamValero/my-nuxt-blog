@@ -11,16 +11,16 @@ useHead({
 </script>
 
 <template>
-    <div class="BlogSlug">
-        <!-- Single Blog => Header simulator -->
-        <PostHeader :post="post" />
-        <!-- <pre>{{ post }}</pre> -->
-        <ContentRenderer :value="post">
-            <template #empty>
-                <p>No content found.</p>
-            </template>
-        </ContentRenderer>
+    <div class="card">
+        <div class="card-header p-7">
+            <PostHeader :post="post" />
+        </div>
+        <div class="card-body p-7">
+            <ContentRenderer :value="post">
+                <template #empty>
+                    <p>No content found.</p>
+                </template>
+            </ContentRenderer>
+        </div>
     </div>
 </template>
-
-<style lang="scss" scoped></style>

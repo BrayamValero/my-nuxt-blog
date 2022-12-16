@@ -179,7 +179,7 @@ body {
 @layer utilities {
     /* Text utilities */
     .text-caption {
-        @apply text-[.6875rem] uppercase font-medium text-blue-400;
+        @apply text-[.75rem] font-medium text-blue-400;
     }
 
     .text-subtitle {

@@ -9,7 +9,7 @@ export const useFormattedDate = (date: any) => {
 
 export const useHumanRedableDate = (date: any) => {
 
-    const SECONDS_AGO = Math.round((Date.now() - new Date(date)) / 1000);
+    const SECONDS_AGO = Math.round((Date.now() - Number(new Date(date))) / 1000);
 
     const MINUTE = 60;
     const HOUR = MINUTE * 60;

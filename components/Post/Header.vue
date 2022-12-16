@@ -5,27 +5,20 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const createdAtFormatted = computed(() => useHumanRedableDate(props.post.created_at))
+const createdAtFormatted = computed(() => {
+    return `Publicado el ${useFormattedDate(props.post.created_at)}`
+})
 </script>
 
 <template>
-    <div class="PostHeader mb-3">
-        <img
-            class="w-full h-36 object-cover cursor-pointer rounded-md shadow"
-            src="https://i.imgur.com/AD3MbBi.jpeg"
-            alt="image"
-        />
-        <div class="flex gap-2 my-3">
+    <div class="PostHeader">
+        <p class="text-caption !text-[.875rem]">{{ createdAtFormatted }}</p>
+        <h1 class="text-title !text-[2.125rem]">{{ post.title }}</h1>
+        <p class="text-description !text-[1.25rem]">{{ post.description }}</p>
+        <div class="flex gap-2 mt-3">
             <NuxtLink v-for="tag in post?.tags" :to="'/blog/category/' + tag" class="badge badge-primary">
                 {{ tag }}
             </NuxtLink>
         </div>
-        <h1 class="text-title">{{ post.title }}</h1>
-        <p class="text-description">{{ post.author }} - {{ createdAtFormatted }}</p>
     </div>
 </template>
-
-<style lang="postcss" scoped>
-.BlogCard {
-}
-</style>

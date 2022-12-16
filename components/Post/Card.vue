@@ -9,7 +9,9 @@ const navigateToPost = () => {
     navigateTo(props.post._path)
 }
 
-const createdAtFormatted = computed(() => useHumanRedableDate(props.post.created_at))
+const createdAtFormatted = computed(() => {
+    return `Publicado el ${useFormattedDate(props.post.created_at)}`
+})
 </script>
 
 <template>
@@ -21,16 +23,17 @@ const createdAtFormatted = computed(() => useHumanRedableDate(props.post.created
             @click="navigateToPost"
         />
         <div class="flex-1 my-4">
-            <div class="flex flex-wrap gap-2 mb-1">
-                <CategoryBadge v-for="tag in post.tags" :category="tag" />
-            </div>
+            <p class="text-caption">{{ createdAtFormatted }}</p>
             <h2 class="text-title dark:text-white underline underline-offset-2 inline-flex">
                 <NuxtLink :to="post._path" class="line-clamp-2">
                     {{ post.title }}
                 </NuxtLink>
             </h2>
             <p class="text-description line-clamp-1">{{ post.description }}</p>
-            <p class="text-caption mt-1">Publicado {{ createdAtFormatted }}</p>
+
+            <div class="flex flex-wrap gap-2 mt-2">
+                <CategoryBadge v-for="tag in post.tags" :category="tag" />
+            </div>
         </div>
     </div>
 </template>
