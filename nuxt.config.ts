@@ -1,8 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/color-mode',],
+    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@vueuse/nuxt'],
     content: {
-        documentDriven: true
+        documentDriven: true,
+        highlight: {
+            theme: {
+                default: 'github-dark',
+            },
+            preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'],
+        },
     },
     colorMode: {
         preference: 'system',
@@ -12,7 +18,7 @@ export default defineNuxtConfig({
         globalName: '__NUXT_COLOR_MODE__',
         componentName: 'ColorScheme',
         classPrefix: '',
-        storageKey: 'nuxt-color-mode'
+        storageKey: 'nuxt-color-mode',
     },
     css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
     postcss: {
@@ -24,7 +30,6 @@ export default defineNuxtConfig({
             // Then, Tailwind
             tailwindcss: {},
             autoprefixer: {},
-
         },
     },
 })

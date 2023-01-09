@@ -18,6 +18,8 @@ useHead({
         <UserRepositories :repositories="repositories" />
         <h2 class="font-bold my-3">My Blog Posts</h2>
         <UserPosts :posts="posts" />
+        <UserSkills />
+        <UserProjects />
     </div>
 </template>
 
