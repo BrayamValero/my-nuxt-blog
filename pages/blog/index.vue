@@ -1,45 +1,58 @@
 <script lang="ts" setup>
 const route: any = useRoute()
 
+// [Route | Ref] => Getting current page based on first route load
 const perPage = 1
+const filter = ref('')
+const debouncedFilter = ref('')
 const currentPage = ref(parseInt(route.query.page || 1))
-const totalRows = ref(await(await queryContent('blog').find()).length)
 
+// [Nuxt Content] => Querying all posts
+const queryPosts = async () => {
+    const posts = await queryContent('blog')
+        .where({ title: { $contains: debouncedFilter.value } })
+        .limit(perPage)
+        .skip(perPage * (currentPage.value - 1))
+        .find()
+    return posts
+}
+
+// [Nuxt Content] => Querying total posts
+const queryTotalRows = async () => {
+    let totalRows: Array<any> | number = await queryContent('blog')
+        .where({ title: { $contains: debouncedFilter.value } })
+        .find()
+    return (totalRows = totalRows.length || 0)
+}
+
+// [Method] => Merging data (allPost with totalRows)
 const getPosts = async () => {
-    const [totalRows, allPosts] = await Promise.all([
-        (await queryContent('blog').find()).length,
-        queryContent('blog')
-            .limit(perPage)
-            .skip(perPage * (currentPage.value - 1))
-            .find(),
-    ])
-
+    const [allPosts, totalRows] = await Promise.all([queryPosts(), queryTotalRows()])
     return {
-        totalRows,
         allPosts,
+        totalRows,
     }
 }
 
-const { data, pending, error, refresh } = await useAsyncData('get-posts', getPosts)
+// [Nuxt | useAsyncData] => Getting Posts with
+const { data, pending, refresh: refreshPosts }: any = await useLazyAsyncData('posts', getPosts)
 
 watch(
     () => route.query.page,
     (newVal) => {
         currentPage.value = parseInt(newVal)
-        refresh()
+        refreshPosts()
     }
 )
 
-const posts = ref([])
-
-const filter = ref('')
-watch(filter, async (newVal) => {
-    posts.value = await queryContent('blog')
-        .where({ title: { $contains: newVal } })
-        .limit(perPage)
-        .skip(perPage * (currentPage.value - 1))
-        .find()
-})
+watch(
+    filter,
+    useDebounce((newVal: any) => {
+        debouncedFilter.value = newVal
+        if (currentPage.value != 1) currentPage.value = 1
+        refreshPosts()
+    }, 300)
+)
 
 useHead({
     title: 'Blog',
@@ -50,12 +63,11 @@ useHead({
     <div class="Blog">
         <h2 class="font-bold mb-3">My Blog Posts</h2>
         <!-- Search -->
-        <!-- <input type="search" v-model="filter" /> -->
-        <pre>{{ data }}</pre>
+        <input type="search" v-model="filter" />
         <!-- User Posts -->
-        <!-- <UserPosts :posts="posts" /> -->
+        <UserPosts :posts="data?.allPosts" />
         <!-- Pagination -->
-        <!-- <BasePagination :current-page="currentPage" :total-rows="totalRows" :per-page="perPage" /> -->
+        <BasePagination :current-page="currentPage" :total-rows="data?.totalRows" :per-page="perPage" />
     </div>
 </template>
 
