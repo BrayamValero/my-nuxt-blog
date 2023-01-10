@@ -1,13 +1,24 @@
 <script lang="ts" setup>
-const { data } = await useAsyncData('posts', () => queryContent('blog').find())
-const posts = ref(data)
+const route: any = useRoute()
 
-const filter = ref('')
-watch(filter, async (newVal) => {
-    posts.value = await queryContent('blog')
-        .where({ title: { $contains: newVal } })
+const perPage = 1
+const currentPage = ref(parseInt(route.query.page || 1))
+
+const { data, pending, error, refresh } = await useAsyncData('get-posts', async () =>
+    queryContent('blog')
+        .limit(perPage)
+        .skip(perPage * (currentPage.value - 1))
         .find()
-})
+)
+const totalRows = await(await queryContent('blog').find()).length
+
+watch(
+    () => route.query.page,
+    (newVal) => {
+        currentPage.value = parseInt(newVal)
+        refresh()
+    }
+)
 
 useHead({
     title: 'Blog',
@@ -16,9 +27,11 @@ useHead({
 
 <template>
     <div class="Blog">
-        <h2 class="font-bold">My Blog Posts</h2>
-        <input type="search" v-model="filter" class="border rounded my-3" placeholder="search" />
-        <UserPosts :posts="posts" />
+        <h2 class="font-bold mb-3">My Blog Posts</h2>
+        <!-- User Posts -->
+        <UserPosts :posts="data" />
+        <!-- Pagination -->
+        <BasePagination :current-page="currentPage" :total-rows="totalRows" :per-page="perPage" />
     </div>
 </template>
 

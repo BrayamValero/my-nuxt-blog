@@ -55,10 +55,6 @@ const { copy, copied } = useClipboard()
 </template>
 
 <style scoped>
-.containerx {
-    position: relative;
-}
-
 .language-text {
     text-transform: uppercase;
     border-bottom-right-radius: 0.25em;
