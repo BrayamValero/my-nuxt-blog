@@ -6,6 +6,6 @@ useHead({
 
 <template>
     <div class="About">
-        <ContentDoc class="mt-3 p-3 bg-gray-300" />
+        <ContentDoc class="prose max-w-none" />
     </div>
 </template>
