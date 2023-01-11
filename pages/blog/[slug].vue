@@ -2,7 +2,7 @@
 const { path } = useRoute()
 const { page, toc } = useContent()
 
-const [prev, next] = await queryContent('blog')
+const [prev, next]: any = await queryContent('blog')
     .where({ published: { $ne: false }, featured: { $ne: true } })
     .only(['_path', 'title'])
     .findSurround(path)
@@ -44,11 +44,8 @@ useHead({
             </article>
             <!-- Post: Content -->
             <PostContent :content="toc.links" class="col-span-full sm:col-span-4 self-start" />
-            <!-- Post: Prev & Next Links -->
-            <div class="col-span-full sm:col-span-8 flex justify-between gap-4">
-                <NuxtLink class="btn btn-primary" v-if="prev" :to="prev._path">{{ prev.title }}</NuxtLink>
-                <NuxtLink class="btn btn-primary" v-if="next" :to="next._path">{{ next.title }}</NuxtLink>
-            </div>
+
+            <PostSurround :prev="prev" :next="next" />
         </div>
     </div>
 </template>

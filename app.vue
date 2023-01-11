@@ -3,6 +3,7 @@
 <template>
     <div class="Main">
         <TheNavbar />
+        <NuxtLoadingIndicator />
         <div class="Main-container container py-4">
             <NuxtPage />
         </div>

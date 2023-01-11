@@ -5,10 +5,7 @@ useHead({
 </script>
 
 <template>
-    <div class="Home">
-        <!-- [Nuxt Content] => ContentDoc -->
+    <div class="About">
         <ContentDoc class="mt-3 p-3 bg-gray-300" />
     </div>
 </template>
-
-<style lang="scss" scoped></style>

@@ -21,5 +21,3 @@ useHead({
         <UserPosts :posts="posts" />
     </div>
 </template>
-
-<style lang="scss" scoped></style>
