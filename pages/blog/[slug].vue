@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 const { path } = useRoute()
-const { page, toc, prev, next } = useContent()
+const { page, toc } = useContent()
+
+const [prev, next] = await queryContent('blog')
+    .where({ published: { $ne: false }, featured: { $ne: true } })
+    .only(['_path', 'title'])
+    .findSurround(path)
 
 const flattenLinks = (links: Array<any>) => {
     const _links = links
@@ -24,7 +29,7 @@ useHead({
 <template>
     <div class="BlogPost">
         <div class="grid grid-cols-12 gap-6">
-            <!-- Blog Post -->
+            <!-- Post: Content -->
             <article class="card col-span-full sm:col-span-8">
                 <div class="card-header p-7">
                     <PostHeader :post="page" />
@@ -37,11 +42,13 @@ useHead({
                     </ContentRenderer>
                 </div>
             </article>
-            <!-- Post Content -->
+            <!-- Post: Content -->
             <PostContent :content="toc.links" class="col-span-full sm:col-span-4 self-start" />
-            <!-- <pre>{{ post }}</pre> -->
-            <NuxtLink v-if="prev" :to="prev._path">{{ prev.title }}</NuxtLink>
-            <NuxtLink v-if="next" :to="next._path">{{ next.title }}</NuxtLink>
+            <!-- Post: Prev & Next Links -->
+            <div class="col-span-full sm:col-span-8 flex justify-between gap-4">
+                <NuxtLink class="btn btn-primary" v-if="prev" :to="prev._path">{{ prev.title }}</NuxtLink>
+                <NuxtLink class="btn btn-primary" v-if="next" :to="next._path">{{ next.title }}</NuxtLink>
+            </div>
         </div>
     </div>
 </template>
