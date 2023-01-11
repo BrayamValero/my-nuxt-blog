@@ -16,7 +16,7 @@ const socialLinks = [
 </script>
 
 <template>
-    <nav class="container flex items-center justify-between gap-5 py-5">
+    <nav class="container flex flex-wrap items-center justify-between gap-5 py-5">
         <div>Brayam Valero</div>
         <div class="flex gap-5">
             <NuxtLink to="/">Home</NuxtLink>
