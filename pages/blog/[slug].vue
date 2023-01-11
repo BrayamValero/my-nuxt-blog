@@ -1,13 +1,6 @@
 <script lang="ts" setup>
 const { path } = useRoute()
-
-const { data: post } = await useAsyncData(path.replace(/\/$/, ''), () =>
-    queryContent('blog').where({ _path: path }).findOne()
-)
-
-useHead({
-    title: post.value?.title || '',
-})
+const { page, toc, prev, next } = useContent()
 
 const flattenLinks = (links: Array<any>) => {
     const _links = links
@@ -22,6 +15,10 @@ const flattenLinks = (links: Array<any>) => {
         .flat(1)
     return _links
 }
+
+useHead({
+    title: page.title || 'Post',
+})
 </script>
 
 <template>
@@ -30,10 +27,10 @@ const flattenLinks = (links: Array<any>) => {
             <!-- Blog Post -->
             <article class="card col-span-full sm:col-span-8">
                 <div class="card-header p-7">
-                    <PostHeader :post="post" />
+                    <PostHeader :post="page" />
                 </div>
                 <div class="card-body prose p-7">
-                    <ContentRenderer :value="post">
+                    <ContentRenderer :value="page">
                         <template #empty>
                             <p>No content found.</p>
                         </template>
@@ -41,7 +38,10 @@ const flattenLinks = (links: Array<any>) => {
                 </div>
             </article>
             <!-- Post Content -->
-            <PostContent :content="post?.body.toc.links" class="col-span-full sm:col-span-4 self-start" />
+            <PostContent :content="toc.links" class="col-span-full sm:col-span-4 self-start" />
+            <!-- <pre>{{ post }}</pre> -->
+            <NuxtLink v-if="prev" :to="prev._path">{{ prev.title }}</NuxtLink>
+            <NuxtLink v-if="next" :to="next._path">{{ next.title }}</NuxtLink>
         </div>
     </div>
 </template>

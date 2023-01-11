@@ -25,17 +25,14 @@ const queryTotalRows = async () => {
     return (totalRows = totalRows.length || 0)
 }
 
-// [Method] => Merging data (allPost with totalRows)
+// [Nuxt | Promise] => Merging all posts with total rows
 const getPosts = async () => {
     const [allPosts, totalRows] = await Promise.all([queryPosts(), queryTotalRows()])
-    return {
-        allPosts,
-        totalRows,
-    }
+    return { allPosts, totalRows }
 }
 
-// [Nuxt | useAsyncData] => Getting Posts with
-const { data, pending, refresh: refreshPosts }: any = await useLazyAsyncData('posts', getPosts)
+// [Nuxt | useAsyncData] => Getting all posts & total rows
+const { data, refresh: refreshPosts } = await useAsyncData('getPosts', getPosts)
 
 watch(
     () => route.query.page,
@@ -62,13 +59,8 @@ useHead({
 <template>
     <div class="Blog">
         <h2 class="font-bold mb-3">My Blog Posts</h2>
-        <!-- Search -->
         <input type="search" v-model="filter" />
-        <!-- User Posts -->
-        <UserPosts :posts="data?.allPosts" />
-        <!-- Pagination -->
-        <BasePagination :current-page="currentPage" :total-rows="data?.totalRows" :per-page="perPage" />
+        <UserPosts :posts="data?.allPosts || []" />
+        <BasePagination :current-page="currentPage" :total-rows="data?.totalRows || 0" :per-page="perPage" />
     </div>
 </template>
-
-<style lang="scss" scoped></style>
