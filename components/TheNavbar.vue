@@ -25,7 +25,7 @@ const socialLinks = [
             <NuxtLink to="/blog">Blog</NuxtLink>
         </div>
         <div class="flex items-center gap-5">
-            <!-- <ul class="flex gap-4">
+            <ul class="flex gap-4">
                 <li v-for="{ url, icon } in socialLinks">
                     <a :href="url">
                         <font-awesome-icon :icon="icon" target="_blank" />
@@ -34,7 +34,7 @@ const socialLinks = [
             </ul>
             <button class="btn btn-sm btn-primary">
                 <ColorMode />
-            </button> -->
+            </button>
         </div>
     </nav>
 </template>
