@@ -11,7 +11,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
     <div class="UserPosts">
-        <h1 class="text-title mb-4">{{ title }}</h1>
+        <h1 class="text-heading dark:text-white mb-4">{{ title }}</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <PostCard v-for="post in posts" :post="post" />
         </div>

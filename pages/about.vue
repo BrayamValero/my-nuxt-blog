@@ -6,6 +6,6 @@ useHead({
 
 <template>
     <div class="About">
-        <ContentDoc class="prose max-w-none" />
+        <ContentDoc class="prose dark:prose-invert max-w-none" />
     </div>
 </template>

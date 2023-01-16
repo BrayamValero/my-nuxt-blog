@@ -178,26 +178,24 @@ body {
 
 @layer utilities {
     /* Text utilities */
+    .text-heading {
+        @apply text-[2rem] font-medium text-gray-800;
+    }
     .text-caption {
         @apply text-[.75rem] font-medium text-blue-400;
     }
-
     .text-subtitle {
         @apply text-[1rem] font-bold;
     }
-
     .text-title {
         @apply text-[1.125rem] font-bold text-gray-800;
     }
-
     .text-description {
         @apply text-[14px] text-gray-500 font-light;
     }
-
     .text-small {
         @apply text-[.75rem] text-gray-500;
     }
-
     /* Flex utilities */
     .flex-between-center {
         @apply flex justify-between items-center;

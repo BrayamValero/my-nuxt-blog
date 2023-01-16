@@ -24,13 +24,12 @@ const createdAtFormatted = computed(() => {
         />
         <div class="flex-1 my-4">
             <p class="text-caption">{{ createdAtFormatted }}</p>
-            <h2 class="text-title dark:text-white underline underline-offset-2 inline-flex">
+            <h2 class="text-title underline underline-offset-2 inline-flex dark:text-white">
                 <NuxtLink :to="post._path" class="line-clamp-2">
                     {{ post.title }}
                 </NuxtLink>
             </h2>
-            <p class="text-description line-clamp-1">{{ post.description }}</p>
-
+            <p class="text-description line-clamp-1 dark:text-gray-400">{{ post.description }}</p>
             <div class="flex flex-wrap gap-2 mt-2">
                 <CategoryBadge v-for="tag in post.tags" :category="tag" />
             </div>
