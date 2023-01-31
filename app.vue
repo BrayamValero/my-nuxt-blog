@@ -1,9 +1,10 @@
 <script lang="ts" setup></script>
 
 <template>
-    <div class="Main container">
+    <div class="Main">
+        <NuxtLoadingIndicator />
         <TheNavbar />
-        <div class="Main-content">
+        <div class="Main-content container">
             <NuxtPage />
         </div>
         <TheFooter />

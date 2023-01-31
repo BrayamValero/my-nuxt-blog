@@ -38,63 +38,70 @@ watch(isLargeScreen, (isLarge) => {
 
 <template>
     <nav class="TheNavbar">
-        <h6 class="TheNavbar-brand">Brayam Valero</h6>
-        <!-- Toggle Button -->
-        <button class="TheNavbar-collapse-btn" @click="toggleNavbar">
-            <ClientOnly>
-                <font-awesome-icon icon="fa-solid fa-bars" />
-            </ClientOnly>
-        </button>
-        <!-- Collaped Content -->
-        <div :class="['TheNavbar-collapse', getToggledStatus]">
-            <div class="TheNavbar-collapse-header">
-                <h6 class="TheNavbar-brand">Brayam Valero</h6>
-                <button @click="toggleNavbar" role="button" type="button">
-                    <ClientOnly>
-                        <font-awesome-icon icon="fa-solid fa-xmark" />
-                    </ClientOnly>
-                </button>
-            </div>
-            <ul class="TheNavbar-collapse-body TheNavbar-group mx-auto">
-                <li class="TheNavbar-item">
-                    <NuxtLink to="/" class="TheNavbar-link">Home</NuxtLink>
-                </li>
-                <li class="TheNavbar-item">
-                    <NuxtLink to="/about" class="TheNavbar-link">Biografia</NuxtLink>
-                </li>
-                <li class="TheNavbar-item">
-                    <NuxtLink to="/projects" class="TheNavbar-link">Proyectos</NuxtLink>
-                </li>
-                <li class="TheNavbar-item">
-                    <NuxtLink to="/blog" class="TheNavbar-link">Blog</NuxtLink>
-                </li>
-            </ul>
-            <ul class="TheNavbar-collapse-body TheNavbar-group">
-                <li v-for="{ url, icon, title } in socialLinks" class="TheNavbar-item">
-                    <a :href="url" class="TheNavbar-link" target="_blank">
+        <div class="TheNavbar-container">
+            <h6 class="TheNavbar-brand">Brayam Valero</h6>
+            <!-- Toggle Button -->
+            <button class="TheNavbar-collapse-btn" @click="toggleNavbar">
+                <ClientOnly>
+                    <font-awesome-icon icon="fa-solid fa-bars" />
+                </ClientOnly>
+            </button>
+            <!-- Collaped Content -->
+            <div :class="['TheNavbar-collapse', getToggledStatus]">
+                <div class="TheNavbar-collapse-header">
+                    <h6 class="TheNavbar-brand-mobile">Brayam Valero</h6>
+                    <button @click="toggleNavbar" role="button" type="button">
                         <ClientOnly>
-                            <font-awesome-icon :icon="icon" />
+                            <font-awesome-icon icon="fa-solid fa-xmark" />
                         </ClientOnly>
-                        <span>{{ title }}</span>
-                    </a>
-                </li>
-
-                <li class="TheNavbar-item">
-                    <ColorMode class="TheNavbar-link" />
-                </li>
-            </ul>
+                    </button>
+                </div>
+                <ul class="TheNavbar-collapse-body TheNavbar-group mx-auto">
+                    <li class="TheNavbar-item">
+                        <NuxtLink to="/" class="TheNavbar-link">Inicio</NuxtLink>
+                    </li>
+                    <li class="TheNavbar-item">
+                        <NuxtLink to="/about" class="TheNavbar-link">Biografia</NuxtLink>
+                    </li>
+                    <li class="TheNavbar-item">
+                        <NuxtLink to="/projects" class="TheNavbar-link">Proyectos</NuxtLink>
+                    </li>
+                    <li class="TheNavbar-item">
+                        <NuxtLink to="/blog" class="TheNavbar-link">Blog</NuxtLink>
+                    </li>
+                </ul>
+                <ul class="TheNavbar-collapse-body TheNavbar-group">
+                    <li v-for="{ url, icon, title } in socialLinks" class="TheNavbar-item">
+                        <a :href="url" class="TheNavbar-link" target="_blank">
+                            <ClientOnly>
+                                <font-awesome-icon :icon="icon" />
+                            </ClientOnly>
+                            <span>{{ title }}</span>
+                        </a>
+                    </li>
+                    <li class="TheNavbar-item">
+                        <ColorMode class="TheNavbar-link" />
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
 
 <style lang="postcss">
 .TheNavbar {
-    @apply relative flex flex-wrap items-center justify-between py-5;
-    @screen lg {
-        @apply justify-start;
+    @apply bg-gray-900 border-b border-gray-900 dark:border-gray-700;
+    &-container {
+        @apply container relative flex flex-wrap items-center justify-between py-5 z-10;
+        @screen lg {
+            @apply justify-start;
+        }
     }
     &-brand {
-        @apply text-blue-500 mr-5;
+        @apply text-white mr-5;
+        &-mobile {
+            @apply text-blue-500;
+        }
     }
     /* Collapse */
     &-collapse {
@@ -103,7 +110,7 @@ watch(isLargeScreen, (isLarge) => {
             @apply flex;
         }
         &.active {
-            @apply absolute flex flex-col items-center bg-white rounded drop-shadow-md w-full top-4 right-0;
+            @apply absolute flex flex-col items-center bg-white rounded drop-shadow-md w-4/5 top-3 right-[1rem];
             @screen sm {
                 @apply w-60;
             }
@@ -146,9 +153,15 @@ watch(isLargeScreen, (isLarge) => {
         }
     }
     &-link {
-        @apply flex items-center gap-3 text-[14px] text-gray-500 font-light  px-4 py-2 hover:underline hover:text-blue-500;
+        @apply w-full flex items-center gap-3 text-[14px] text-gray-400 font-light px-4 py-2 hover:underline hover:text-blue-500;
         @screen lg {
             @apply p-0 dark:text-gray-400;
+        }
+        & > svg {
+            @apply text-gray-400;
+            @screen lg {
+                @apply text-white hover:text-blue-500;
+            }
         }
         & > span {
             @apply block;
