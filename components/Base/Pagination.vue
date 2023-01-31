@@ -125,16 +125,16 @@ const getLinks = computed<Array<number | string>>(() => {
     &-link {
         position: relative;
         margin-left: -1px;
-        @apply text-[.85rem] text-gray-500 bg-white font-light border border-gray-300 py-2 px-3;
+        @apply text-[.85rem] text-stone-500 bg-white font-light border border-stone-300 py-2 px-3;
         &:hover {
-            @apply bg-gray-400;
+            @apply bg-stone-400;
         }
         &.disabled {
-            @apply text-gray-400 pointer-events-none;
+            @apply text-stone-400 pointer-events-none;
         }
         &.active {
             z-index: 1;
-            @apply bg-gray-800 text-white;
+            @apply bg-stone-800 text-white;
         }
     }
 }

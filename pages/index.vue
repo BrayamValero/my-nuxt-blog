@@ -10,7 +10,7 @@ useHead({
 <template>
     <div class="Home mb-10">
         <!-- Receive Users -->
-        <section class="Hero py-20 text-center">
+        <section class="Home-hero py-20 text-center">
             <div class="Home-card">
                 <img class="Home-card-img" src="~/assets/img/profile_pic.jpg" />
                 <div class="Home-card-body">
@@ -50,15 +50,21 @@ useHead({
 <style lang="postcss">
 .Home {
     &-card {
-        @apply relative flex flex-col bg-white border rounded-md;
+        @apply w-full mx-auto relative flex flex-col bg-white border rounded-md;
+        @screen md {
+            @apply w-4/5;
+        }
+        @screen lg {
+            @apply w-3/5;
+        }
         &-caption {
-            @apply text-blue-500 font-bold;
+            @apply text-red-500 font-bold;
         }
         &-title {
-            @apply text-[1.5rem] text-gray-800 font-bold;
+            @apply text-[1.5rem] text-stone-800 font-bold;
         }
         &-description {
-            @apply text-[1rem] text-gray-500 font-light;
+            @apply text-[1rem] text-stone-500 font-light;
         }
         &-body {
             @apply pb-7 pt-14 px-7 flex-1;
@@ -69,9 +75,9 @@ useHead({
         &-items {
             @apply flex flex-wrap justify-center gap-4 my-3;
             & > li {
-                @apply text-sm text-gray-400 font-light flex items-center gap-2;
+                @apply text-sm text-stone-400 font-light flex items-center gap-2;
                 & > svg {
-                    @apply text-blue-500;
+                    @apply text-red-500;
                 }
             }
         }

@@ -16,7 +16,7 @@ const getLanguageColor = computed(() => {
         PHP: 'bg-red-500',
         Vue: 'bg-green-500',
         React: 'bg-blue-500',
-        default: 'bg-gray-500',
+        default: 'bg-stone-500',
     }
     return color[props.repository.language] || color['default']
 })
@@ -38,7 +38,7 @@ const isPrivate = computed(() => {
         <div class="card-footer flex-between-center">
             <div class="flex items-center">
                 <div class="h-2.5 w-2.5 rounded-full mr-1" :class="[getLanguageColor]"></div>
-                <p class="text-small text-blue-400">
+                <p class="text-small text-red-400">
                     {{ repository.language || 'Sin Lenguajes' }}
                 </p>
             </div>

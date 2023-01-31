@@ -39,7 +39,7 @@ watch(isLargeScreen, (isLarge) => {
 <template>
     <nav class="TheNavbar">
         <div class="TheNavbar-container">
-            <h6 class="TheNavbar-brand">Brayam Valero</h6>
+            <h6 class="TheNavbar-brand" @click="navigateTo('/')">Brayam Valero</h6>
             <!-- Toggle Button -->
             <button class="TheNavbar-collapse-btn" @click="toggleNavbar">
                 <ClientOnly>
@@ -49,7 +49,7 @@ watch(isLargeScreen, (isLarge) => {
             <!-- Collaped Content -->
             <div :class="['TheNavbar-collapse', getToggledStatus]">
                 <div class="TheNavbar-collapse-header">
-                    <h6 class="TheNavbar-brand-mobile">Brayam Valero</h6>
+                    <h6 class="TheNavbar-brand-mobile" @click="navigateTo('/')">Brayam Valero</h6>
                     <button @click="toggleNavbar" role="button" type="button">
                         <ClientOnly>
                             <font-awesome-icon icon="fa-solid fa-xmark" />
@@ -90,7 +90,7 @@ watch(isLargeScreen, (isLarge) => {
 
 <style lang="postcss">
 .TheNavbar {
-    @apply bg-gray-900 border-b border-gray-900 dark:border-gray-700;
+    @apply bg-stone-900 border-stone-900 border-b dark:border-stone-700;
     &-container {
         @apply container relative flex flex-wrap items-center justify-between py-5 z-10;
         @screen lg {
@@ -98,9 +98,9 @@ watch(isLargeScreen, (isLarge) => {
         }
     }
     &-brand {
-        @apply text-white mr-5;
+        @apply cursor-pointer text-white mr-5;
         &-mobile {
-            @apply text-blue-500;
+            @apply cursor-pointer text-red-500;
         }
     }
     /* Collapse */
@@ -116,7 +116,7 @@ watch(isLargeScreen, (isLarge) => {
             }
         }
         &-btn {
-            @apply block rounded bg-blue-500 text-white px-2 py-1;
+            @apply block rounded bg-red-500 text-white px-2 py-1;
             @screen lg {
                 @apply hidden;
             }
@@ -124,7 +124,7 @@ watch(isLargeScreen, (isLarge) => {
         &-header {
             @apply w-full flex justify-between items-center px-4 py-3 border-b;
             & > button {
-                @apply text-gray-800;
+                @apply text-stone-800;
             }
             @screen lg {
                 @apply hidden;
@@ -153,14 +153,14 @@ watch(isLargeScreen, (isLarge) => {
         }
     }
     &-link {
-        @apply w-full flex items-center gap-3 text-[14px] text-gray-400 font-light px-4 py-2 hover:underline hover:text-blue-500;
+        @apply w-full flex items-center gap-3 text-[14px] text-stone-400 font-light px-4 py-2 hover:underline hover:text-red-500;
         @screen lg {
-            @apply p-0 dark:text-gray-400;
+            @apply p-0 dark:text-stone-400;
         }
         & > svg {
-            @apply text-gray-400;
+            @apply text-stone-400;
             @screen lg {
-                @apply text-white hover:text-blue-500;
+                @apply text-white hover:text-red-500;
             }
         }
         & > span {

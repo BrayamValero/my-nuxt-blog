@@ -29,7 +29,7 @@ const createdAtFormatted = computed(() => {
                     {{ post.title }}
                 </NuxtLink>
             </h2>
-            <p class="text-description line-clamp-1 dark:text-gray-400">{{ post.description }}</p>
+            <p class="text-description line-clamp-1 dark:text-stone-400">{{ post.description }}</p>
             <div class="flex flex-wrap gap-2 mt-2">
                 <CategoryBadge v-for="tag in post.tags" :category="tag" />
             </div>
