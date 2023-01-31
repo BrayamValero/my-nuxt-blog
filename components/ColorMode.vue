@@ -15,7 +15,9 @@ const getColorIcon = computed<string>(() => (colorMode.preference === 'dark' ? '
 
 <template>
     <button @click="setColorTheme" type="button" role="button" :aria-label="colorMode.preference">
-        <font-awesome-icon :icon="['fa-solid', getColorIcon]" />
+        <div>
+            <font-awesome-icon :icon="['fa-solid', getColorIcon]" />
+        </div>
         <span>Cambiar Tema</span>
     </button>
 </template>

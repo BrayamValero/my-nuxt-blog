@@ -68,10 +68,13 @@ watch(isLargeScreen, (isLarge) => {
             <ul class="TheNavbar-collapse-body TheNavbar-group">
                 <li v-for="{ url, icon, title } in socialLinks" class="TheNavbar-item">
                     <a :href="url" class="TheNavbar-link" target="_blank">
-                        <font-awesome-icon :icon="icon" />
+                        <div>
+                            <font-awesome-icon :icon="icon" />
+                        </div>
                         <span>{{ title }}</span>
                     </a>
                 </li>
+
                 <li class="TheNavbar-item">
                     <ColorMode class="TheNavbar-link" />
                 </li>

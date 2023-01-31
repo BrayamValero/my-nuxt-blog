@@ -32,4 +32,13 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
+    build: {
+        transpile: [
+            '@fortawesome/fontawesome-svg-core',
+            '@fortawesome/vue-fontawesome',
+            '@fortawesome/free-solid-svg-icons',
+            '@fortawesome/free-regular-svg-icons',
+            '@fortawesome/free-brands-svg-icons',
+        ],
+    },
 })
