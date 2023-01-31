@@ -1,10 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-    <div class="Main">
+    <div class="Main container">
         <TheNavbar />
-        <NuxtLoadingIndicator />
-        <div class="Main-container container py-4">
+        <div class="Main-content">
             <NuxtPage />
         </div>
         <TheFooter />
@@ -16,8 +15,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-
-    &-container {
+    &-content {
         flex: 1;
     }
 }
