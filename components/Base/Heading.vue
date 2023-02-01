@@ -26,13 +26,13 @@ const getPosition = computed(() => `${props.position}`)
     align-items: v-bind(getPosition);
     @apply flex flex-col mb-8;
     &-caption {
-        @apply text-sm text-red-500 font-medium;
+        @apply text-sm text-red-500 font-medium text-center;
     }
     &-title {
-        @apply text-[2rem] text-stone-800 font-bold dark:text-white;
+        @apply text-[2rem] text-stone-800 font-bold dark:text-white text-center;
     }
     &-description {
-        @apply text-stone-500 text-sm font-light dark:text-stone-400;
+        @apply text-stone-500 text-sm font-light dark:text-stone-400 text-center;
     }
 }
 </style>

@@ -1,6 +1,31 @@
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core'
 
+const closeNavbar = () => (isToggled.value = false)
+
+const defaultLinks = [
+    {
+        to: '/',
+        title: 'Inicio',
+        event: closeNavbar,
+    },
+    {
+        to: '/about',
+        title: 'Biografia',
+        event: closeNavbar,
+    },
+    {
+        to: '/projects',
+        title: 'Proyectos',
+        event: closeNavbar,
+    },
+    {
+        to: '/blog',
+        title: 'Blog',
+        event: closeNavbar,
+    },
+]
+
 const socialLinks = [
     {
         url: 'https://twitter.com/BrayamValero',
@@ -57,17 +82,8 @@ watch(isLargeScreen, (isLarge) => {
                     </button>
                 </div>
                 <ul class="TheNavbar-collapse-body TheNavbar-group mx-auto">
-                    <li class="TheNavbar-item">
-                        <NuxtLink to="/" class="TheNavbar-link">Inicio</NuxtLink>
-                    </li>
-                    <li class="TheNavbar-item">
-                        <NuxtLink to="/about" class="TheNavbar-link">Biografia</NuxtLink>
-                    </li>
-                    <li class="TheNavbar-item">
-                        <NuxtLink to="/projects" class="TheNavbar-link">Proyectos</NuxtLink>
-                    </li>
-                    <li class="TheNavbar-item">
-                        <NuxtLink to="/blog" class="TheNavbar-link">Blog</NuxtLink>
+                    <li v-for="{ to, title, event } in defaultLinks" class="TheNavbar-item">
+                        <NuxtLink :to="to" @click="event" class="TheNavbar-link">{{ title }}</NuxtLink>
                     </li>
                 </ul>
                 <ul class="TheNavbar-collapse-body TheNavbar-group">

@@ -18,7 +18,7 @@ module.exports = {
                     css: {
                         fontWeight: 300,
                         '--tw-prose-body': theme('colors.stone.500'), // Paragraph
-                        '--tw-prose-headings': theme('colors.red.800'), // Main Heading > H1
+                        '--tw-prose-headings': theme('colors.red.500'), // Main Heading > H1
                         '--tw-prose-lead': theme('colors.stone.800'),
                         '--tw-prose-links': theme('colors.stone.800'), // Heading Links
                         '--tw-prose-bold': theme('colors.stone.800'), // Bold Content
@@ -34,7 +34,7 @@ module.exports = {
                         '--tw-prose-th-borders': theme('colors.stone.300'),
                         '--tw-prose-td-borders': theme('colors.stone.200'),
                         '--tw-prose-invert-body': theme('colors.stone.400'),
-                        '--tw-prose-invert-headings': theme('colors.white'),
+                        '--tw-prose-invert-headings': theme('colors.red.500'),
                         '--tw-prose-invert-lead': theme('colors.stone.300'),
                         '--tw-prose-invert-links': theme('colors.white'),
                         '--tw-prose-invert-bold': theme('colors.white'),
