@@ -20,7 +20,7 @@ useHead({
     meta: [
         {
             name: 'google-site-verification',
-            content: runtimeConfig.googleSiteVerification,
+            content: runtimeConfig.public.googleSiteVerification,
         },
         {
             name: 'description',

@@ -43,14 +43,12 @@ export default defineNuxtConfig({
     },
     image: {
         cloudinary: {
-            baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_USERNAME}/image/upload`,
+            baseURL: `https://res.cloudinary.com/brayamvalero/image/upload`,
         },
     },
     runtimeConfig: {
-        // Private Keys => Server Side Only
-        googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION,
         public: {
-            //   Code...
+            googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION,
         },
     },
 })
