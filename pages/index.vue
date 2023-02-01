@@ -24,9 +24,10 @@ useHead({
                     <h1 class="Home-card-caption">Brayam Valero</h1>
                     <h2 class="Home-card-title">Frontend Developer</h2>
                     <p class="Home-card-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, voluptate laboriosam optio porro
-                        magnam facere doloribus sint. Ipsam blanditiis quis corrupti in tempore consequuntur ab.
+                        Software Developer con +4 años de experiencia en diseño UI/UX y desarrollo Frontend. Mi stack
+                        preferido y más usado actualmente es JavaScript, Vue, Nuxt, y TypeScript.
                     </p>
+                    <p class="Home-card-small mt-2">Gaming | Anime | Rock</p>
                     <ul class="Home-card-items">
                         <li>
                             <ClientOnly>
@@ -76,6 +77,9 @@ useHead({
         }
         &-description {
             @apply text-[1rem] text-stone-500 font-light;
+        }
+        &-small {
+            @apply text-sm text-stone-900 font-light;
         }
         &-body {
             @apply pb-7 pt-14 px-7 flex-1;
