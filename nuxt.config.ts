@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@vueuse/nuxt'],
+    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@vueuse/nuxt', '@nuxt/image-edge'],
     content: {
         documentDriven: true,
         highlight: {
@@ -40,5 +40,10 @@ export default defineNuxtConfig({
             '@fortawesome/free-regular-svg-icons',
             '@fortawesome/free-brands-svg-icons',
         ],
+    },
+    image: {
+        cloudinary: {
+            baseURL: 'https://res.cloudinary.com/brayamvalero/image/upload',
+        },
     },
 })

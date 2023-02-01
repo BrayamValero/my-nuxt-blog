@@ -16,11 +16,12 @@ const createdAtFormatted = computed(() => {
 
 <template>
     <div class="BlogCard">
-        <img
-            class="w-full h-36 object-cover cursor-pointer rounded-md shadow"
-            src="https://i.imgur.com/AD3MbBi.jpeg"
-            alt="image"
+        <NuxtImg
+            :provider="post.provider"
+            :src="post.image"
+            :alt="'img_' + post.title"
             @click="navigateToPost"
+            class="w-full h-36 object-cover cursor-pointer rounded-md shadow"
         />
         <div class="flex-1 my-4">
             <p class="text-caption">{{ createdAtFormatted }}</p>

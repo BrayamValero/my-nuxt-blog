@@ -67,7 +67,6 @@ useHead({
     <div class="Blog">
         <section class="BlogPosts section-spacing">
             <BaseHeading v-bind="blogPostsHeading" />
-
             <BaseInput
                 v-model="filter"
                 type="search"

@@ -19,7 +19,7 @@ const userProjectsHeading: any = {
 }
 
 useHead({
-    title: 'Projects',
+    title: 'Proyectos',
 })
 </script>
 

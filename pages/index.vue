@@ -10,7 +10,7 @@ const baseHeading: any = {
 }
 
 useHead({
-    title: 'Home',
+    title: 'Inicio',
 })
 </script>
 

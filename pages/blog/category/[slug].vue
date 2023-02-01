@@ -18,7 +18,7 @@ const blogCategoryHeading: any = {
 }
 
 useHead({
-    title: 'Categories - ' + slug,
+    title: 'Categoria - ' + slug,
 })
 </script>
 
