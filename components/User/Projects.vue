@@ -1,21 +1,21 @@
 <script lang="ts" setup>
 const projects = [
     {
-        title: 'Suelas LC',
-        description: 'Management and audit system',
-        tags: ['html', 'css', 'javascript'],
+        title: 'Project Alpha',
+        description: 'Data dummy, aun por definir',
+        tags: ['Vue', 'Nuxt', 'TypeScript'],
         url: 'https://www.google.com/',
     },
     {
-        title: 'Suelas LC',
-        description: 'Management and audit system',
-        tags: ['html', 'css', 'javascript'],
+        title: 'Project Beta',
+        description: 'Data dummy, aun por definir',
+        tags: ['Vue', 'Nuxt', 'TypeScript'],
         url: 'https://www.google.com/',
     },
     {
-        title: 'Suelas LC',
-        description: 'Management and audit system',
-        tags: ['html', 'css', 'javascript'],
+        title: 'Project Gamma',
+        description: 'Data dummy, aun por definir',
+        tags: ['Vue', 'Nuxt', 'TypeScript'],
         url: 'https://www.google.com/',
     },
 ]

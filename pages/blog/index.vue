@@ -2,7 +2,7 @@
 const route: any = useRoute()
 
 // [Route | Ref] => Getting current page based on first route load
-const perPage = 1
+const perPage = 3
 const filter = ref('')
 const debouncedFilter = ref('')
 const currentPage = ref(parseInt(route.query.page || 1))
@@ -67,9 +67,22 @@ useHead({
     <div class="Blog">
         <section class="BlogPosts section-spacing">
             <BaseHeading v-bind="blogPostsHeading" />
-            <input type="search" v-model="filter" class="border border-gray-200 px-3 py-1 outline-0 rounded mb-3" />
+
+            <BaseInput
+                v-model="filter"
+                type="search"
+                name="search"
+                placeholder="Buscar"
+                icon="fa-solid fa-magnifying-glass"
+            />
+
             <UserPosts :posts="data?.allPosts || []" />
-            <BasePagination :current-page="currentPage" :total-rows="data?.totalRows || 0" :per-page="perPage" />
+            <BasePagination
+                :current-page="currentPage"
+                :total-rows="data?.totalRows || 0"
+                :per-page="perPage"
+                class="mt-8"
+            />
         </section>
     </div>
 </template>

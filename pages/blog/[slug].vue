@@ -37,7 +37,7 @@ useHead({
                 <div class="card-body prose p-7">
                     <ContentRenderer :value="page">
                         <template #empty>
-                            <p>No content found.</p>
+                            <p>No se ha encontrado nada</p>
                         </template>
                     </ContentRenderer>
                 </div>

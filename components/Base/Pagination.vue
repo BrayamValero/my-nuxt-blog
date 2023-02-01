@@ -54,7 +54,7 @@ const getLinks = computed<Array<number | string>>(() => {
                     query: { page: 1 },
                 }"
             >
-                First
+                Primero
             </NuxtLink>
         </li>
         <li class="BasePagination-item">
@@ -66,7 +66,9 @@ const getLinks = computed<Array<number | string>>(() => {
                     query: { page: getPrevPage },
                 }"
             >
-                Prev
+                <ClientOnly>
+                    <font-awesome-icon icon="fa-solid fa-chevron-left" />
+                </ClientOnly>
             </NuxtLink>
         </li>
         <li v-for="index in getLinks" :key="index" class="BasePagination-item">
@@ -90,7 +92,9 @@ const getLinks = computed<Array<number | string>>(() => {
                     query: { page: getNextPage },
                 }"
             >
-                Next
+                <ClientOnly>
+                    <font-awesome-icon icon="fa-solid fa-chevron-right" />
+                </ClientOnly>
             </NuxtLink>
         </li>
         <li class="BasePagination-item">
@@ -102,7 +106,7 @@ const getLinks = computed<Array<number | string>>(() => {
                     query: { page: getLastPage },
                 }"
             >
-                Last
+                Último
             </NuxtLink>
         </li>
     </ul>
@@ -110,7 +114,7 @@ const getLinks = computed<Array<number | string>>(() => {
 
 <style lang="postcss" scoped>
 .BasePagination {
-    @apply flex flex-row;
+    @apply flex flex-row justify-center;
     &-item {
         &:first-child .BasePagination-link {
             margin-left: 0;
