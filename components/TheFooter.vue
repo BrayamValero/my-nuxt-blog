@@ -47,9 +47,8 @@ const socialLinks = [
     &-group {
         @apply flex justify-center gap-5;
     }
-
     &-link {
-        @apply flex items-center gap-2 hover:text-red-500;
+        @apply text-white flex items-center gap-2 hover:text-red-500;
     }
 }
 </style>

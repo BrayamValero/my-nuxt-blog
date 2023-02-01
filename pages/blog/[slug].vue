@@ -28,7 +28,7 @@ useHead({
 
 <template>
     <div class="BlogPost">
-        <div class="grid grid-cols-12 gap-6">
+        <div class="grid grid-cols-12 gap-6 section-spacing">
             <!-- Post: Content -->
             <article class="card col-span-full sm:col-span-8">
                 <div class="card-header p-7">
@@ -44,7 +44,6 @@ useHead({
             </article>
             <!-- Post: Content -->
             <PostContent :content="toc.links" class="col-span-full sm:col-span-4 self-start" />
-
             <PostSurround :prev="prev" :next="next" />
         </div>
     </div>

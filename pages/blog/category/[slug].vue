@@ -10,6 +10,13 @@ const { data: posts } = await useAsyncData(`posts-${slug}`, () =>
         .find()
 )
 
+const blogCategoryHeading: any = {
+    caption: slug,
+    title: 'Categoria',
+    description: 'Acá podrás ver todas las publicaciones que coincidan con la categoría seleccionada',
+    position: 'center',
+}
+
 useHead({
     title: 'Categories - ' + slug,
 })
@@ -17,7 +24,9 @@ useHead({
 
 <template>
     <div class="Category">
-        <h2 class="font-bold my-3">Categoria: {{ slug }}</h2>
-        <UserPosts :posts="posts" />
+        <section class="section-spacing">
+            <BaseHeading v-bind="blogCategoryHeading" />
+            <UserPosts :posts="posts" />
+        </section>
     </div>
 </template>

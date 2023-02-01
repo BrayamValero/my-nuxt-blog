@@ -31,14 +31,12 @@ const skills = [
 </script>
 
 <template>
-    <div class="UserSkills">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ul v-for="{ title, items } in skills">
-                <li class="text-title">{{ title }}</li>
-                <li v-for="{ name } in items" class="text-description">
-                    {{ name }}
-                </li>
-            </ul>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ul v-for="{ title, items } in skills">
+            <li class="text-title">{{ title }}</li>
+            <li v-for="{ name } in items" class="text-description">
+                {{ name }}
+            </li>
+        </ul>
     </div>
 </template>

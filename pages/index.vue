@@ -2,15 +2,22 @@
 // [Nuxt Content] => Querying blog posts content
 const { data: posts } = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
 
+const baseHeading: any = {
+    caption: 'Te invito a leer',
+    title: 'Mis Publicaciones',
+    description: 'Aquí podras ver mis últimas publicaciones, normalmente no subo muchas cosas',
+    position: 'center',
+}
+
 useHead({
     title: 'Home',
 })
 </script>
 
 <template>
-    <div class="Home mb-10">
-        <!-- Receive Users -->
-        <section class="Home-hero py-20 text-center">
+    <div class="Home">
+        <!-- Home Hero -->
+        <section class="Home-hero text-center mt-20 mb-14">
             <div class="Home-card">
                 <img class="Home-card-img" src="~/assets/img/profile_pic.jpg" />
                 <div class="Home-card-body">
@@ -44,7 +51,11 @@ useHead({
                 </div>
             </div>
         </section>
-        <UserPosts :posts="posts" />
+        <!-- Home Posts -->
+        <section class="Home-posts section-spacing">
+            <BaseHeading v-bind="baseHeading" />
+            <UserPosts :posts="posts" v-bind="baseHeading" />
+        </section>
     </div>
 </template>
 <style lang="postcss">

@@ -51,6 +51,13 @@ watch(
     }, 300)
 )
 
+const blogPostsHeading: any = {
+    caption: 'Bienvenido',
+    title: 'Mi Blog',
+    description: 'Aquí podras ver mis últimas publicaciones, normalmente no subo muchas cosas',
+    position: 'center',
+}
+
 useHead({
     title: 'Blog',
 })
@@ -58,9 +65,11 @@ useHead({
 
 <template>
     <div class="Blog">
-        <h2 class="font-bold mb-3">My Blog Posts</h2>
-        <input type="search" v-model="filter" />
-        <UserPosts :posts="data?.allPosts || []" />
-        <BasePagination :current-page="currentPage" :total-rows="data?.totalRows || 0" :per-page="perPage" />
+        <section class="BlogPosts section-spacing">
+            <BaseHeading v-bind="blogPostsHeading" />
+            <input type="search" v-model="filter" class="border border-gray-200 px-3 py-1 outline-0 rounded mb-3" />
+            <UserPosts :posts="data?.allPosts || []" />
+            <BasePagination :current-page="currentPage" :total-rows="data?.totalRows || 0" :per-page="perPage" />
+        </section>
     </div>
 </template>

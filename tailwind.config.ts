@@ -18,7 +18,7 @@ module.exports = {
                     css: {
                         fontWeight: 300,
                         '--tw-prose-body': theme('colors.stone.500'), // Paragraph
-                        '--tw-prose-headings': theme('colors.blue.800'), // Main Heading > H1
+                        '--tw-prose-headings': theme('colors.red.800'), // Main Heading > H1
                         '--tw-prose-lead': theme('colors.stone.800'),
                         '--tw-prose-links': theme('colors.stone.800'), // Heading Links
                         '--tw-prose-bold': theme('colors.stone.800'), // Bold Content

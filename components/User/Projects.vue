@@ -22,10 +22,7 @@ const projects = [
 </script>
 
 <template>
-    <div class="UserProjects">
-        <h1 class="text-heading dark:text-white mb-4">Trabajos & Collabs</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ProjectCard v-for="project in projects" :project="project" />
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ProjectCard v-for="project in projects" :project="project" />
     </div>
 </template>

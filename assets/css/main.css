@@ -192,4 +192,7 @@ body {
     .flex-between-center {
         @apply flex justify-between items-center;
     }
+    .section-spacing {
+        @apply my-14;
+    }
 }
