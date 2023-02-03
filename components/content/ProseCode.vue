@@ -15,37 +15,21 @@ const props = withDefaults(defineProps<Props>(), {
     highlights: () => [],
 })
 
-const languageMap: Record<string, { text: string; color: string; background: string }> = {
-    vue: {
-        text: 'vue',
-        background: '#42b883',
-        color: 'white',
-    },
-    js: {
-        text: 'js',
-        background: '#f7df1e',
-        color: 'black',
-    },
-}
-const languageText = computed(() => (props.language ? languageMap[props.language]?.text : null))
-const languageBackground = computed(() => (props.language ? languageMap[props.language]?.background : null))
-const languageColor = computed(() => (props.language ? languageMap[props.language]?.color : null))
-
 const { copy, copied } = useClipboard()
 </script>
 
 <template>
-    <div>
-        <span
-            v-if="languageText"
-            :style="{ background: languageBackground, color: languageColor }"
-            class="language-text"
-        >
-            {{ languageText }}
-        </span>
-        <span v-if="filename" class="filename-text">
-            {{ filename }}
-        </span>
+    <div class="ProseCode">
+        <div class="ProseCode-group">
+            <span v-if="language" class="ProseCode-language badge badge-primary">
+                {{ language }}
+            </span>
+            <br />
+            <span v-if="filename" class="ProseCode-filename">
+                {{ filename }}
+            </span>
+        </div>
+
         <slot />
 
         <button class="btn btn-primary" @click="!copied ? copy(code) : null">
@@ -54,10 +38,19 @@ const { copy, copied } = useClipboard()
     </div>
 </template>
 
-<style scoped>
-.language-text {
-    text-transform: uppercase;
-    border-bottom-right-radius: 0.25em;
-    border-bottom-left-radius: 0.25em;
+<style lang="postcss">
+.ProseCode {
+    &-group {
+        @apply flex flex-wrap gap-3 justify-between items-center;
+    }
+    &-language {
+        @apply font-bold;
+    }
+    &-filename {
+        @apply font-bold text-stone-800 underline;
+    }
+    & .line {
+        @apply block min-h-[1rem];
+    }
 }
 </style>

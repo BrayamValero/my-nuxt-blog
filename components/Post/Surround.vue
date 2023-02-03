@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 interface Props {
-    prev: { _path: string; title: string }
-    next: { _path: string; title: string }
+    prev: { _path: string; title: string } | null
+    next: { _path: string; title: string } | null
 }
 
 defineProps<Props>()
