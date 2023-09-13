@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import BannerProfile from '~~/components/BannerProfile.vue'
+
 // [Nuxt Content] => Querying blog posts content
 const { data: posts } = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
 
@@ -16,47 +18,48 @@ useHead({
 
 <template>
     <div class="Home">
-        <!-- Home Hero -->
-        <section class="Home-hero text-center mt-20 mb-14">
-            <div class="Home-card">
-                <img class="Home-card-img" src="~/assets/img/profile_pic.jpg" />
-                <div class="Home-card-body">
-                    <h1 class="Home-card-caption">Brayam Valero</h1>
-                    <h2 class="Home-card-title">Frontend Developer</h2>
-                    <p class="Home-card-description">
-                        Software Developer con +4 años de experiencia en diseño UI/UX y desarrollo Frontend. Mi stack
-                        preferido y más usado actualmente es JavaScript, Vue, Nuxt, y TypeScript.
-                    </p>
-                    <p class="Home-card-small mt-2">Gaming | Anime | Rock</p>
-                    <ul class="Home-card-items">
-                        <li>
-                            <ClientOnly>
-                                <font-awesome-icon icon="fa-solid fa-location-dot" />
-                            </ClientOnly>
-                            Venezuela
-                        </li>
-                        <li>
-                            <ClientOnly>
-                                <font-awesome-icon icon="fa-solid fa-house-laptop" />
-                            </ClientOnly>
-                            AllProperty
-                        </li>
-                        <li>
-                            <ClientOnly>
-                                <font-awesome-icon icon="fa-solid fa-cake-candles" />
-                            </ClientOnly>
-                            29/11/1992
-                        </li>
-                    </ul>
-                    <button class="btn btn-primary mt-2">Ver Curriculum</button>
-                </div>
+        <div class="grid grid-cols-4 grid-rows-5 gap-6 mt-8">
+            <div class="col-span-2 row-span-2">
+                <BannerProfile />
             </div>
-        </section>
+            <div class="col-start-3">
+                <BannerAction
+                    title="Freelance"
+                    description="Necesitas un servicio? Cotizalo conmigo ahora!"
+                    url="google.com"
+                />
+            </div>
+            <div class="col-start-3 row-start-2">
+                <BannerAction
+                    title="Perfil"
+                    description="Quieres sabes mas sobre mi? Revisa mi curriculum"
+                    url="google.com"
+                />
+            </div>
+            <div class="col-start-4 row-start-1">
+                <BannerAction
+                    title="Contactame"
+                    description="Quieres enviarme un mensaje? Estas a un click de lograrlo"
+                    url="google.com"
+                />
+            </div>
+            <div class="col-start-4 row-start-2">
+                <BannerAction
+                    title="Blog"
+                    description="Quieres leer cosas interesantes? Lee mis publicaciones"
+                    url="google.com"
+                />
+            </div>
+        </div>
+
+        <!-- Home Hero -->
+        <!-- <section class="Home-hero mt-20 mb-14"> -->
+        <!-- </section> -->
         <!-- Home Posts -->
-        <section class="Home-posts section-spacing">
+        <!-- <section class="Home-posts section-spacing">
             <BaseHeading v-bind="baseHeading" />
             <UserPosts :posts="posts" v-bind="baseHeading" />
-        </section>
+        </section> -->
     </div>
 </template>
 <style lang="postcss">
