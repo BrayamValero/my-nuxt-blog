@@ -11,10 +11,5 @@ const navigateToCategories = () => {
 </script>
 
 <template>
-    <span class="badge badge-primary cursor-pointer" @click="navigateToCategories"> #{{ category }} </span>
+    <span class="badge bg-red-400 text-white cursor-pointer" @click="navigateToCategories"> #{{ category }} </span>
 </template>
-
-<style lang="postcss" scoped>
-.CategoryBadge {
-}
-</style>

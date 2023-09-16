@@ -15,31 +15,29 @@ const createdAtFormatted = computed(() => {
 </script>
 
 <template>
-    <div class="BlogCard">
-        <NuxtImg
-            :provider="post.provider"
-            :src="post.image"
-            :alt="'img_' + post.title"
-            @click="navigateToPost"
-            class="w-full h-36 object-cover cursor-pointer rounded-md shadow"
-        />
-        <div class="flex-1 my-4">
-            <p class="text-caption">{{ createdAtFormatted }}</p>
-            <h2 class="text-title underline underline-offset-2 inline-flex dark:text-white">
+    <div
+        class="flex flex-col bg-white rounded-lg shadow-xl transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300"
+    >
+        <div class="relative">
+            <NuxtImg
+                :provider="post.provider"
+                :src="post.image"
+                :alt="'img_' + post.title"
+                @click="navigateToPost"
+                class="rounded-t-lg w-full h-48 object-cover cursor-pointer shadow"
+            />
+            <div class="flex flex-wrap gap-2 absolute bottom-4 left-4">
+                <CategoryBadge v-for="tag in post.tags" :category="tag" />
+            </div>
+        </div>
+        <div class="rounded-b-lg flex-1 p-6">
+            <h2 class="font-black text-neutral-800 text-xl mb-1 inline-flex">
                 <NuxtLink :to="post._path" class="line-clamp-2">
                     {{ post.title }}
                 </NuxtLink>
             </h2>
-            <p class="text-description line-clamp-1 dark:text-stone-400">{{ post.description }}</p>
-            <div class="flex flex-wrap gap-2 mt-2">
-                <CategoryBadge v-for="tag in post.tags" :category="tag" />
-            </div>
+            <p class="font-light text-neutral-400 text-sm leading-7 mb-2 line-clamp-2">{{ post.description }}</p>
+            <p class="text-red-400 text-xs">{{ createdAtFormatted }}</p>
         </div>
     </div>
 </template>
-
-<style lang="postcss" scoped>
-.BlogCard {
-    @apply flex flex-col;
-}
-</style>
