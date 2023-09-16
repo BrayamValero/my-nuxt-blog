@@ -1,49 +1,47 @@
 <script lang="ts" setup>
-const socialLinks = [
+const userInfo = [
     {
-        url: 'https://twitter.com/BrayamValero',
-        icon: 'fa-brands fa-twitter',
-        title: 'Twitter',
+        icon: 'fa fa-location-dot',
+        title: 'Venezuela',
     },
     {
-        url: 'https://github.com/BrayamValero',
-        icon: 'fa-brands fa-github',
-        title: 'GitHub',
+        icon: 'fa fa-house-laptop',
+        title: 'AllProperty',
     },
     {
-        url: 'https://www.linkedin.com/in/brayamvalero/',
-        icon: 'fa-brands fa-linkedin',
-        title: 'LinkedIn',
+        icon: 'fa fa-cake-candles',
+        title: '29/11/1992',
     },
 ]
 </script>
 
 <template>
-    <div class="h-full bg-white flex flex-col justify-between p-5 rounded-lg drop-shadow-md">
-        <!-- Content -->
-        <div>
-            <div class="flex items-center gap-4 mb-4">
-                <img class="w-20 h-20 rounded-lg" src="/jpg/img-brayam.jpg" alt="Imagen de Brayam" />
+    <div class="bg-white shadow-xl rounded-xl md:p-8 p-6">
+        <div class="flex h-full sm:flex-row flex-col sm:items-start items-center gap-8">
+            <img class="w-[8rem] h-[8rem] rounded-lg" src="/jpg/img-brayam.jpg" alt="Imagen de Brayam" />
+            <div class="flex flex-col sm:items-start items-center sm:text-left text-center gap-4 h-full">
                 <div>
-                    <h1 class="font-bold text-neutral-800 text-lg">Brayam Valero</h1>
-                    <p class="font-normal text-neutral-600 mb-1">Software Developer</p>
-                    <p class="font-light text-neutral-400 text-xs">San Cristobal, Venezuela</p>
+                    <h1 class="font-black text-neutral-800 text-3xl mb-2">Brayam Valero</h1>
+                    <h2 class="font-normal text-neutral-600 text-2xl">Software Developer</h2>
                 </div>
+                <p class="font-light text-neutral-400 text-sm leading-7 flex-1">
+                    Con 5 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue, Nuxt, y
+                    TypeScript me convierten en un desarrollador y diseñador excepcional. Mi versatilidad incluye
+                    habilidades de backend, y siempre estoy ansioso por aprender nuevas tecnologías. Mi capacidad de
+                    comunicación y liderazgo son activos clave para el éxito del equipo.
+                </p>
+
+                <ul class="flex flex-row flex-wrap list-none gap-5">
+                    <li v-for="{ icon, title } in userInfo" class="flex items-center flex-nowrap text-sm gap-2">
+                        <ClientOnly>
+                            <font-awesome-icon :icon="icon" class="text-red-500" />
+                        </ClientOnly>
+                        <span class="text-neutral-800">
+                            {{ title }}
+                        </span>
+                    </li>
+                </ul>
             </div>
-            <p class="font-normal text-neutral-600 text-sm leading-7">
-                Software Developer con +5 años de experiencia en diseño UI/UX y desarrollo Frontend. Mi stack preferido
-                y más usado actualmente es JavaScript, Vue, Nuxt, y TypeScript.
-            </p>
         </div>
-        <!-- Social -->
-        <ul class="flex flex-row self-end gap-4 list-none">
-            <li v-for="{ url, icon, title } in socialLinks">
-                <a :href="url" class="btn btn-primary" target="_blank">
-                    <ClientOnly>
-                        <font-awesome-icon :icon="icon" />
-                    </ClientOnly>
-                </a>
-            </li>
-        </ul>
     </div>
 </template>

@@ -18,53 +18,52 @@ useHead({
 
 <template>
     <div class="Home">
-        <div class="grid grid-cols-4 grid-rows-5 gap-6 mt-8">
-            <div class="col-span-2 row-span-2">
-                <BannerProfile />
-            </div>
-            <div class="col-start-3">
+        <!-- Home Hero -->
+        <div class="bg-red-400">
+            <div class="container grid grid-cols-4 gap-6 py-16">
+                <BannerProfile class="xl:col-span-2 col-span-full row-span-2" />
+
                 <BannerAction
+                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Freelance"
-                    description="Necesitas un servicio? Cotizalo conmigo ahora!"
+                    description="¿Necesitas un servicio? ¡Cotízalo conmigo ahora!"
                     url="google.com"
                 />
-            </div>
-            <div class="col-start-3 row-start-2">
+
                 <BannerAction
+                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Perfil"
-                    description="Quieres sabes mas sobre mi? Revisa mi curriculum"
+                    description="¿Quieres saber más sobre mí? ¡Revisa mi currículum!"
                     url="google.com"
                 />
-            </div>
-            <div class="col-start-4 row-start-1">
+
                 <BannerAction
+                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Contactame"
-                    description="Quieres enviarme un mensaje? Estas a un click de lograrlo"
+                    description="¿Quieres enviarme un mensaje? ¡Estás a un clic de lograrlo!"
                     url="google.com"
                 />
-            </div>
-            <div class="col-start-4 row-start-2">
+
                 <BannerAction
+                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Blog"
-                    description="Quieres leer cosas interesantes? Lee mis publicaciones"
+                    description="¿Quieres leer cosas interesantes? ¡Lee mis publicaciones!"
                     url="google.com"
                 />
             </div>
         </div>
 
-        <!-- Home Hero -->
-        <!-- <section class="Home-hero mt-20 mb-14"> -->
-        <!-- </section> -->
-        <!-- Home Posts -->
-        <!-- <section class="Home-posts section-spacing">
+        <section class="Home-posts container section-spacing">
             <BaseHeading v-bind="baseHeading" />
             <UserPosts :posts="posts" v-bind="baseHeading" />
-        </section> -->
+        </section>
     </div>
 </template>
 <style lang="postcss">
 .Home {
-    &-card {
+    &-hero {
+    }
+    /* &-card {
         @apply w-full mx-auto relative flex flex-col bg-white border rounded-md;
         @screen md {
             @apply w-4/5;
@@ -99,6 +98,6 @@ useHead({
                 }
             }
         }
-    }
+    } */
 }
 </style>

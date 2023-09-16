@@ -79,7 +79,7 @@ useHead({
     <div class="Main">
         <NuxtLoadingIndicator />
         <TheNavbar />
-        <div class="Main-content container">
+        <div class="Main-content">
             <NuxtPage />
         </div>
         <TheFooter />
