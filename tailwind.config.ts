@@ -66,5 +66,5 @@ module.exports = {
         'error.{js,ts,vue}',
         'content/**/*.md',
     ],
-    plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
+    plugins: [require('@tailwindcss/typography')],
 }
