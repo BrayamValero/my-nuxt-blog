@@ -23,7 +23,7 @@ useHead({
 </script>
 
 <template>
-    <div class="Category">
+    <div class="Category container">
         <section class="section-spacing">
             <BaseHeading v-bind="blogCategoryHeading" />
             <UserPosts :posts="posts" />

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import BannerProfile from '~~/components/BannerProfile.vue'
+import BannerProfile from '~/components/BannerProfile.vue'
 
 // [Nuxt Content] => Querying blog posts content
 const { data: posts } = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
@@ -18,7 +18,7 @@ useHead({
 <template>
     <div class="Home">
         <!-- Home Hero -->
-        <div class="bg-red-400">
+        <section class="bg-red-400">
             <div class="container grid grid-cols-4 gap-6 py-16">
                 <BannerProfile class="xl:col-span-2 col-span-full row-span-2" />
 
@@ -50,9 +50,9 @@ useHead({
                     url="google.com"
                 />
             </div>
-        </div>
-
-        <section class="Home-posts container section-spacing">
+        </section>
+        <!-- Posts Section -->
+        <section class="container section-spacing">
             <BaseHeading v-bind="baseHeading">
                 <template #actions>
                     <NuxtLink to="/blog" class="btn btn-primary">Ver Mas</NuxtLink>
@@ -62,5 +62,3 @@ useHead({
         </section>
     </div>
 </template>
-
-<style lang="postcss"></style>

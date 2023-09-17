@@ -24,7 +24,7 @@ useHead({
 </script>
 
 <template>
-    <div class="Projects">
+    <div class="Projects container">
         <section class="UserRepositories section-spacing">
             <BaseHeading v-bind="userRepositoriesHeading" />
             <UserRepositories :repositories="repositories" />

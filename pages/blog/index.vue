@@ -64,7 +64,7 @@ useHead({
 </script>
 
 <template>
-    <div class="Blog">
+    <div class="Blog container">
         <section class="BlogPosts section-spacing">
             <BaseHeading v-bind="blogPostsHeading" />
             <BaseInput

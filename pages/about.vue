@@ -5,7 +5,7 @@ useHead({
 </script>
 
 <template>
-    <div class="About">
+    <div class="About container">
         <section class="section-spacing">
             <ContentDoc class="prose dark:prose-invert max-w-none" />
         </section>
