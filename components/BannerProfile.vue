@@ -22,7 +22,7 @@ const userInfo = [
             <div class="flex flex-col sm:items-start items-center sm:text-left text-center gap-4 h-full">
                 <div>
                     <h1 class="font-black text-neutral-800 text-3xl mb-2">Brayam Valero</h1>
-                    <h2 class="font-normal text-red-400 text-2xl">Software Developer</h2>
+                    <h2 class="font-normal text-red-500 text-2xl">Software Developer</h2>
                 </div>
                 <p class="font-light text-neutral-400 text-sm leading-7 flex-1">
                     Con 5 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue, Nuxt, y
@@ -34,7 +34,7 @@ const userInfo = [
                 <ul class="flex flex-row flex-wrap list-none gap-5">
                     <li v-for="{ icon, title } in userInfo" class="flex items-center flex-nowrap text-sm gap-2">
                         <ClientOnly>
-                            <font-awesome-icon :icon="icon" class="text-red-400" />
+                            <font-awesome-icon :icon="icon" class="text-red-500" />
                         </ClientOnly>
                         <span class="text-neutral-800">
                             {{ title }}

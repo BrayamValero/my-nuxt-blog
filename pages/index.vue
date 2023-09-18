@@ -17,7 +17,7 @@ useHead({
 <template>
     <div class="Home">
         <!-- Home Hero -->
-        <section class="bg-red-400">
+        <section class="bg-gradient-to-tl from-red-400 to-red-600">
             <div class="container grid grid-cols-4 gap-6 py-16">
                 <BannerProfile class="xl:col-span-2 col-span-full row-span-2" />
 
@@ -25,28 +25,28 @@ useHead({
                     class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Freelance"
                     description="¿Necesitas un servicio? ¡Cotízalo conmigo ahora!"
-                    url="google.com"
+                    url="https://v2.nuxt.com"
                 />
 
                 <BannerAction
                     class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Perfil"
                     description="¿Quieres saber más sobre mí? ¡Revisa mi currículum!"
-                    url="google.com"
+                    url="https://v2.nuxt.com"
                 />
 
                 <BannerAction
                     class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Contactame"
                     description="¿Quieres enviarme un mensaje? ¡Estás a un clic de lograrlo!"
-                    url="google.com"
+                    url="mailto:bvalerop@gmail.com"
                 />
 
                 <BannerAction
                     class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
                     title="Blog"
                     description="¿Quieres leer cosas interesantes? ¡Lee mis publicaciones!"
-                    url="google.com"
+                    path="/blog"
                 />
             </div>
         </section>
