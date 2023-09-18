@@ -11,10 +11,8 @@ const { data: posts } = await useAsyncData(`posts-${slug}`, () =>
 )
 
 const blogCategoryHeading: any = {
-    caption: slug,
     title: 'Categoria',
     description: 'Acá podrás ver todas las publicaciones que coincidan con la categoría seleccionada',
-    position: 'center',
 }
 
 useHead({

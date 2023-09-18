@@ -25,20 +25,17 @@ const queryTotalRows = async () => {
     return (totalRows = totalRows.length || 0)
 }
 
-// [Nuxt | Promise] => Merging all posts with total rows
-const getPosts = async () => {
+// [Nuxt & Promise] => Getting all posts & total rows (Merge)
+const { data, refresh } = await useAsyncData(async () => {
     const [allPosts, totalRows] = await Promise.all([queryPosts(), queryTotalRows()])
     return { allPosts, totalRows }
-}
-
-// [Nuxt | useAsyncData] => Getting all posts & total rows
-const { data, refresh: refreshPosts } = await useAsyncData('getPosts', getPosts)
+})
 
 watch(
     () => route.query.page,
     (newVal) => {
         currentPage.value = parseInt(newVal)
-        refreshPosts()
+        refresh()
     }
 )
 
@@ -47,15 +44,13 @@ watch(
     useDebounce((newVal: any) => {
         debouncedFilter.value = newVal
         if (currentPage.value != 1) currentPage.value = 1
-        refreshPosts()
+        refresh()
     }, 300)
 )
 
 const blogPostsHeading: any = {
-    caption: 'Bienvenido',
     title: 'Mi Blog',
     description: 'Aquí podras ver mis últimas publicaciones, normalmente no subo muchas cosas',
-    position: 'center',
 }
 
 useHead({
@@ -66,7 +61,9 @@ useHead({
 <template>
     <div class="Blog container">
         <section class="BlogPosts section-spacing">
+            <!-- Heading -->
             <BaseHeading v-bind="blogPostsHeading" />
+            <!-- Search -->
             <BaseInput
                 v-model="filter"
                 type="search"
@@ -74,8 +71,9 @@ useHead({
                 placeholder="Buscar"
                 icon="fa-solid fa-magnifying-glass"
             />
-
+            <!-- All User Posts -->
             <UserPosts :posts="data?.allPosts || []" />
+            <!-- Pagination -->
             <BasePagination
                 :current-page="currentPage"
                 :total-rows="data?.totalRows || 0"

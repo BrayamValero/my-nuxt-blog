@@ -5,17 +5,13 @@ const { pending, data: repositories } = useLazyAsyncData('getUserRepositories', 
 )
 
 const userRepositoriesHeading: any = {
-    caption: 'Echale un vistazo a',
     title: 'Mis Repositorios',
     description: 'Hay dististas cosas, entre proyectos personales hasta trabajos para clientes',
-    position: 'center',
 }
 
 const userProjectsHeading: any = {
-    caption: 'También puedes ver',
     title: 'Mis Proyectos',
     description: 'Este apartado es de proyectos que no se encuentren en GitHub',
-    position: 'center',
 }
 
 useHead({

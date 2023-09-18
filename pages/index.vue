@@ -5,7 +5,6 @@ import BannerProfile from '~/components/BannerProfile.vue'
 const { data: posts } = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
 
 const baseHeading: any = {
-    position: 'start',
     title: 'Mis Publicaciones',
     description: 'Te invito a leer mis publicaciones',
 }
