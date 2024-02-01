@@ -10,12 +10,34 @@ const baseHeading: any = {
 useHead({
     title: 'Inicio',
 })
+
+const skills: any = [
+    {
+        name: 'UI / UX Design',
+        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        icon: 'fa-solid fa-bezier-curve',
+    },
+    {
+        name: 'Clean code',
+        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        icon: 'fa-solid fa-code',
+    },
+    {
+        name: 'QA Testing',
+        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        icon: 'fa-solid fa-code-pull-request',
+    },
+    {
+        name: 'Project Management',
+        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        icon: 'fa-regular fa-clipboard',
+    },
+]
 </script>
 
 <template>
     <div class="Home">
-        <!-- Home Hero -->
-
+        <!-- Section -->
         <section class="Home-hero">
             <div class="Home-hero-overlay">
                 <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 content-center h-full">
@@ -24,10 +46,10 @@ useHead({
                             Brayam Valero
                         </h1>
                         <p
-                            class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 text-sm sm:text-base md:text-md lg:text-lg text-gray-200 font-light"
+                            class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 text-sm sm:text-base md:text-md lg:text-lg text-stone-400 font-light"
                         >
                             Soy un
-                            <span class="font-bold underline underline-offset-2 decoration-red-500">
+                            <span class="font-bold text-white underline underline-offset-2 decoration-red-500">
                                 Software Developer
                             </span>
                             con +6 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue,
@@ -48,15 +70,17 @@ useHead({
                 </div>
             </div>
         </section>
-
-        <!-- Posts Section -->
-        <section class="container section-spacing">
-            <BaseHeading v-bind="baseHeading">
-                <template #actions>
-                    <NuxtLink to="/blog" class="btn btn-primary">Ver Mas</NuxtLink>
-                </template>
-            </BaseHeading>
-            <UserPosts :posts="posts" v-bind="baseHeading" />
+        <!-- Section -->
+        <section class="container my-16">
+            <div class="mb-8 text-center">
+                <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
+                <p class="text-stone-400 font-light">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+                <CardFeaturedSkills v-for="skill in skills" v-bind="skill" />
+            </div>
         </section>
     </div>
 </template>
