@@ -15,6 +15,7 @@ interface Emits {
 }
 
 const props = defineProps<Props>()
+
 const emit = defineEmits<Emits>()
 
 const onInput = (event: any) => emit('update:modelValue', event.target.value)

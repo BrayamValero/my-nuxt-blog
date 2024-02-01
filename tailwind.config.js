@@ -13,7 +13,7 @@ module.exports = {
         },
         darkSelector: '.dark',
         extend: {
-            typography: (theme: any) => ({
+            typography: (theme) => ({
                 DEFAULT: {
                     css: {
                         fontWeight: 300,

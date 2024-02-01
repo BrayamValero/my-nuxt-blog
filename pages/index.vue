@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import BannerProfile from '~/components/BannerProfile.vue'
-
 // [Nuxt Content] => Querying blog posts content
 const { data: posts } = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
 
@@ -17,39 +15,40 @@ useHead({
 <template>
     <div class="Home">
         <!-- Home Hero -->
-        <section class="bg-gradient-to-tl from-red-400 to-red-600">
-            <div class="container grid grid-cols-4 gap-6 py-16">
-                <BannerProfile class="xl:col-span-2 col-span-full row-span-2" />
 
-                <BannerAction
-                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
-                    title="Freelance"
-                    description="¿Necesitas un servicio? ¡Cotízalo conmigo ahora!"
-                    url="https://v2.nuxt.com"
-                />
+        <section class="Home-hero">
+            <div class="Home-hero-overlay">
+                <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 content-center h-full">
+                    <div class="text-center sm:text-center md:text-start">
+                        <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold mb-3">
+                            Brayam Valero
+                        </h1>
+                        <p
+                            class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 text-sm sm:text-base md:text-md lg:text-lg text-gray-200 font-light"
+                        >
+                            Soy un
+                            <span class="font-bold underline underline-offset-2 decoration-red-500">
+                                Software Developer
+                            </span>
+                            con +6 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue,
+                            Nuxt, y TypeScript me convierten en un desarrollador y diseñador excepcional. Mi
+                            versatilidad incluye habilidades de backend, y siempre estoy ansioso por aprender nuevas
+                            tecnologías.
+                        </p>
 
-                <BannerAction
-                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
-                    title="Perfil"
-                    description="¿Quieres saber más sobre mí? ¡Revisa mi currículum!"
-                    url="https://v2.nuxt.com"
-                />
-
-                <BannerAction
-                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
-                    title="Contactame"
-                    description="¿Quieres enviarme un mensaje? ¡Estás a un clic de lograrlo!"
-                    url="mailto:bvalerop@gmail.com"
-                />
-
-                <BannerAction
-                    class="lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-full"
-                    title="Blog"
-                    description="¿Quieres leer cosas interesantes? ¡Lee mis publicaciones!"
-                    path="/blog"
-                />
+                        <BaseButton class="mt-6" variant="red" size="lg" rounded> Ver Curriculum</BaseButton>
+                    </div>
+                    <div class="order-first md:order-last flex justify-center items-center">
+                        <img
+                            class="w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 rounded-full"
+                            src="/jpg/profile-avatar.jpg"
+                            alt="profile-avatar"
+                        />
+                    </div>
+                </div>
             </div>
         </section>
+
         <!-- Posts Section -->
         <section class="container section-spacing">
             <BaseHeading v-bind="baseHeading">
@@ -61,3 +60,18 @@ useHead({
         </section>
     </div>
 </template>
+
+<style lang="postcss">
+.Home-hero {
+    @apply h-[90vh];
+    background-image: linear-gradient(#44403c 0.8px, transparent 0.8px),
+        linear-gradient(90deg, #44403c 0.8px, transparent 0.8px), linear-gradient(#44403c 0.4px, transparent 0.4px),
+        linear-gradient(90deg, #44403c 0.4px, #1c1917 0.4px);
+    background-size: 40px 40px, 40px 40px;
+    background-position: -0.8px -0.8px, -0.8px -0.8px, -0.4px -0.4px, -0.4px -0.4px;
+    &-overlay {
+        height: inherit;
+        background-image: linear-gradient(to top, rgba(28, 25, 23, 1), rgba(28, 25, 23, 0.15));
+    }
+}
+</style>

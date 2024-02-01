@@ -95,9 +95,6 @@ watch(isLargeScreen, (isLarge) => {
                             <span>{{ title }}</span>
                         </a>
                     </li>
-                    <li class="TheNavbar-item">
-                        <ColorMode class="TheNavbar-link" />
-                    </li>
                 </ul>
             </div>
         </div>
@@ -106,7 +103,8 @@ watch(isLargeScreen, (isLarge) => {
 
 <style lang="postcss">
 .TheNavbar {
-    @apply bg-stone-900 border-stone-900 border-b dark:border-stone-700;
+    @apply bg-stone-900 border-stone-700 border-b;
+
     &-container {
         @apply container relative flex flex-wrap items-center justify-between py-5 z-10;
         @screen lg {
