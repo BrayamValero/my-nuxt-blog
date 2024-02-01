@@ -1,15 +1,6 @@
 <script lang="ts" setup>
 // [Nuxt Content] => Querying blog posts content
-const { data: posts } = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
-
-const baseHeading: any = {
-    title: 'Mis Publicaciones',
-    description: 'Te invito a leer mis publicaciones',
-}
-
-useHead({
-    title: 'Inicio',
-})
+const { data: posts }: any = await useAsyncData('getPosts', () => queryContent('blog').limit(3).find())
 
 const skills: any = [
     {
@@ -34,9 +25,7 @@ const skills: any = [
     },
 ]
 
-const getIcon = (name: string) => defineAsyncComponent(() => import(`~/assets/icons/${name}.svg`))
-
-const tools = [
+const tools: any = [
     { name: 'HTML', icon: 'html' },
     { name: 'CSS', icon: 'css3' },
     { name: 'Sass', icon: 'sass' },
@@ -50,6 +39,10 @@ const tools = [
     { name: 'Node.js', icon: 'nodejs' },
     { name: 'Laravel', icon: 'laravel' },
 ]
+
+useHead({
+    title: 'Inicio',
+})
 </script>
 
 <template>
@@ -101,20 +94,17 @@ const tools = [
         </section>
         <!-- Section -->
         <section class="container my-16">
-            <div class="mb-8 text-center">
+            <div class="text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
                 <p class="text-stone-400 font-light">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
                 </p>
             </div>
-            <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-3 gap-6">
-                <div
-                    v-for="{ icon, name } in tools"
-                    class="md:justify-start justify-center rounded-lg border border-stone-700 bg-stone-800 p-4 flex items-center gap-4 ring-0 cursor-pointer hover:ring-red-500/50 hover:border-red-500/50 hover:ring-2 hover:scale-105 duration-300"
-                >
-                    <component :is="getIcon(icon)" class="text-red-500 text-2xl shrink-0"></component>
-                    <span class="text-white md:block hidden">{{ name }}</span>
-                </div>
+            <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-3 gap-6 my-8">
+                <CardTool v-for="tool in tools" v-bind="tool" />
+            </div>
+            <div class="text-center">
+                <BaseButton variant="red" to="/about#habilidades" rounded> Ver más </BaseButton>
             </div>
         </section>
         <!-- Section -->
@@ -125,8 +115,11 @@ const tools = [
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
                 </p>
             </div>
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">
-                <CardPost v-for="post in posts" :post="post" />
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 my-8">
+                <CardPost v-for="post in posts" v-bind="post" />
+            </div>
+            <div class="text-center">
+                <BaseButton variant="red" to="/blog" rounded> Ver más </BaseButton>
             </div>
         </section>
     </div>
