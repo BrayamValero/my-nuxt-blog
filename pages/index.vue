@@ -68,7 +68,12 @@ useHead({
                             tecnologías.
                         </p>
 
-                        <BaseButton class="mt-6" variant="red" size="lg" rounded> Ver Curriculum</BaseButton>
+                        <BaseButton class="mt-6" variant="red" size="lg" rounded>
+                            Ver Curriculum
+                            <ClientOnly>
+                                <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
+                            </ClientOnly>
+                        </BaseButton>
                     </div>
                     <div class="order-first md:order-last flex justify-center items-center">
                         <img
@@ -104,7 +109,12 @@ useHead({
                 <CardTool v-for="tool in tools" v-bind="tool" />
             </div>
             <div class="text-center">
-                <BaseButton variant="red" to="/about#habilidades" rounded> Ver más </BaseButton>
+                <BaseButton variant="red" to="/about#habilidades" rounded>
+                    Ver más
+                    <ClientOnly>
+                        <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
+                    </ClientOnly>
+                </BaseButton>
             </div>
         </section>
         <!-- Section -->
@@ -119,7 +129,12 @@ useHead({
                 <CardPost v-for="post in posts" v-bind="post" />
             </div>
             <div class="text-center">
-                <BaseButton variant="red" to="/blog" rounded> Ver más </BaseButton>
+                <BaseButton variant="red" to="/blog" rounded>
+                    Ver más
+                    <ClientOnly>
+                        <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
+                    </ClientOnly>
+                </BaseButton>
             </div>
         </section>
     </div>
