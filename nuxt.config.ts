@@ -1,6 +1,13 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@vueuse/nuxt', '@nuxt/image-edge'],
+    modules: [
+        '@nuxt/content',
+        '@nuxtjs/tailwindcss',
+        '@nuxtjs/color-mode',
+        '@vueuse/nuxt',
+        '@nuxt/image-edge',
+        'nuxt-svgo',
+    ],
     content: {
         documentDriven: true,
         highlight: {

@@ -13,12 +13,17 @@ const socialLinks = [
         icon: 'fa-brands fa-linkedin',
     },
 ]
+
+const getCurrentyear = () => {
+    const date = new Date()
+    return date.getFullYear()
+}
 </script>
 
 <template>
     <footer class="TheFooter">
         <div class="TheFooter-container">
-            <p class="text-stone-400 font-light">©2022 - Brayam Valero. All Rights Reserved.</p>
+            <p class="text-stone-400 font-light">©{{ getCurrentyear() }} - Brayam Valero. All Rights Reserved.</p>
             <ul class="TheFooter-group">
                 <li v-for="{ url, icon } in socialLinks" class="TheFooter-item">
                     <a

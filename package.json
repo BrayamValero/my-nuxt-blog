@@ -15,6 +15,7 @@
         "@vueuse/nuxt": "^9.10.0",
         "autoprefixer": "^10.4.13",
         "nuxt": "^3.7.3",
+        "nuxt-svgo": "^4.0.0",
         "postcss": "^8.4.20",
         "sass": "^1.56.1"
     },

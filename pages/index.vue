@@ -33,6 +33,23 @@ const skills: any = [
         icon: 'fa-regular fa-clipboard',
     },
 ]
+
+const getIcon = (name: string) => defineAsyncComponent(() => import(`~/assets/icons/${name}.svg`))
+
+const tools = [
+    { name: 'HTML', icon: 'html' },
+    { name: 'CSS', icon: 'css3' },
+    { name: 'Sass', icon: 'sass' },
+    { name: 'JavaScript', icon: 'javascript' },
+    { name: 'PHP', icon: 'php' },
+    { name: 'MySQL', icon: 'database' },
+    { name: 'Vue', icon: 'vuejs' },
+    { name: 'Nuxt', icon: 'nuxtjs' },
+    { name: 'TypeScript', icon: 'typescript' },
+    { name: 'React', icon: 'reactjs' },
+    { name: 'Node.js', icon: 'nodejs' },
+    { name: 'Laravel', icon: 'laravel' },
+]
 </script>
 
 <template>
@@ -42,11 +59,11 @@ const skills: any = [
             <div class="Home-hero-overlay">
                 <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 content-center h-full">
                     <div class="text-center sm:text-center md:text-start">
-                        <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold mb-3">
+                        <h1 class="xl:text-4xl lg:text-3xl md:text-2xl text-xl text-white font-bold mb-3">
                             Brayam Valero
                         </h1>
                         <p
-                            class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 text-sm sm:text-base md:text-md lg:text-lg text-stone-400 font-light"
+                            class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 lg:text-lg md:text-base sm:text-base text-sm text-stone-400 font-light"
                         >
                             Soy un
                             <span class="font-bold text-white underline underline-offset-2 decoration-red-500">
@@ -80,6 +97,24 @@ const skills: any = [
             </div>
             <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
                 <CardFeaturedSkills v-for="skill in skills" v-bind="skill" />
+            </div>
+        </section>
+        <!-- Section -->
+        <section class="container my-16">
+            <div class="mb-8 text-center">
+                <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
+                <p class="text-stone-400 font-light">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
+                </p>
+            </div>
+            <div class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-3 gap-6">
+                <div
+                    v-for="{ icon, name } in tools"
+                    class="md:justify-start justify-center rounded-lg border border-stone-700 bg-stone-800 p-4 flex items-center gap-4 ring-0 cursor-pointer hover:ring-red-500/50 hover:border-red-500/50 hover:ring-2 hover:scale-105 duration-300"
+                >
+                    <component :is="getIcon(icon)" class="text-red-500 text-2xl shrink-0"></component>
+                    <span class="text-white md:block hidden">{{ name }}</span>
+                </div>
             </div>
         </section>
     </div>
