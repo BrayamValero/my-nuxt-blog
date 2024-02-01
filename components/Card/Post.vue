@@ -5,13 +5,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const navigateToPost = () => {
-    navigateTo(props.post._path)
-}
-
-const createdAtFormatted = computed(() => {
-    return `Publicado el ${useFormattedDate(props.post.created_at)}`
-})
+const navigateToPost = () => navigateTo(props.post._path)
+const createdAtFormatted = computed(() => `Publicado el ${useFormattedDate(props.post.created_at)}`)
 </script>
 
 <template>
@@ -31,13 +26,13 @@ const createdAtFormatted = computed(() => {
             </div>
         </div>
         <div class="rounded-b-lg flex-1 p-6">
-            <h2 class="font-black text-neutral-800 text-xl mb-1 inline-flex">
+            <h2 class="font-black text-stone-800 text-xl mb-1 inline-flex">
                 <NuxtLink :to="post._path" class="line-clamp-2">
                     {{ post.title }}
                 </NuxtLink>
             </h2>
-            <p class="font-light text-neutral-400 text-sm leading-7 mb-2 line-clamp-2">{{ post.description }}</p>
-            <p class="text-red-400 text-xs">{{ createdAtFormatted }}</p>
+            <p class="font-light text-stone-400 text-sm leading-7 mb-2 line-clamp-2">{{ post.description }}</p>
+            <p class="text-red-600 text-xs">{{ createdAtFormatted }}</p>
         </div>
     </div>
 </template>

@@ -11,10 +11,6 @@ const defaultLinks = [
         title: 'Biografia',
     },
     {
-        to: '/projects',
-        title: 'Proyectos',
-    },
-    {
         to: '/blog',
         title: 'Blog',
     },

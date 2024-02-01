@@ -88,7 +88,7 @@ const tools = [
             </div>
         </section>
         <!-- Section -->
-        <section class="container my-16">
+        <section class="container mb-16">
             <div class="mb-8 text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
                 <p class="text-stone-400 font-light">
@@ -96,7 +96,7 @@ const tools = [
                 </p>
             </div>
             <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
-                <CardFeaturedSkills v-for="skill in skills" v-bind="skill" />
+                <CardSkills v-for="skill in skills" v-bind="skill" />
             </div>
         </section>
         <!-- Section -->
@@ -115,6 +115,18 @@ const tools = [
                     <component :is="getIcon(icon)" class="text-red-500 text-2xl shrink-0"></component>
                     <span class="text-white md:block hidden">{{ name }}</span>
                 </div>
+            </div>
+        </section>
+        <!-- Section -->
+        <section class="container my-16">
+            <div class="mb-8 text-center">
+                <h1 class="text-white text-2xl font-bold mb-2">Post Recientes</h1>
+                <p class="text-stone-400 font-light">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">
+                <CardPost v-for="post in posts" :post="post" />
             </div>
         </section>
     </div>
