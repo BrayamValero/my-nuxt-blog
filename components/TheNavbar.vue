@@ -69,7 +69,9 @@ watch(isLargeScreen, (isLarge) => {
                 </div>
                 <ul class="TheNavbar-collapse-body TheNavbar-group mx-auto">
                     <li v-for="{ to, title } in defaultLinks" class="TheNavbar-item">
-                        <NuxtLink :to="to" @click="toggleNavbar" class="TheNavbar-link">{{ title }}</NuxtLink>
+                        <NuxtLink :to="to" @click="!isLargeScreen ? toggleNavbar() : false" class="TheNavbar-link">
+                            {{ title }}
+                        </NuxtLink>
                     </li>
                 </ul>
                 <ul class="TheNavbar-collapse-body TheNavbar-group">
