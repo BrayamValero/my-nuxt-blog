@@ -80,7 +80,7 @@ useHead({
             </div>
         </section>
         <!-- Experience -->
-        <section class="container mb-16">
+        <section class="container my-16">
             <!-- Header -->
             <div class="text-center">
                 <TextHeading class="mb-2">Experiencia Técnica</TextHeading>

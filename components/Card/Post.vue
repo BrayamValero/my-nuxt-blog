@@ -40,7 +40,9 @@ const createdAtFormatted = computed(() => `Publicado el ${useFormattedDate(props
             <p class="font-light text-stone-500 md:text-base text-sm md:leading-7 leading:6 line-clamp-2">
                 {{ description }}
             </p>
-            <p class="text-red-600 sm:text-sm text-xs mt-2">{{ createdAtFormatted }}</p>
+            <TextCaption class="mt-2">
+                {{ createdAtFormatted }}
+            </TextCaption>
         </div>
     </div>
 </template>

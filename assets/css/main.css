@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-    --bg: theme('colors.stone.900');
+    --bg: theme('colors.stone.50');
     --color: theme('colors.stone.500');
 }
 
 .dark {
-    --bg: theme('colors.stone.800');
+    --bg: theme('colors.stone.900');
     --color: theme('colors.stone.400');
 }
 
