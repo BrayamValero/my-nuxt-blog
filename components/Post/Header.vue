@@ -11,14 +11,16 @@ const createdAtFormatted = computed(() => {
 </script>
 
 <template>
-    <div class="PostHeader">
-        <p class="text-caption !text-[.875rem]">{{ createdAtFormatted }}</p>
-        <h1 class="text-title !text-[2.125rem]">{{ post.title }}</h1>
-        <p class="text-description !text-[1.25rem]">{{ post.description }}</p>
-        <div class="flex gap-2 mt-3">
-            <NuxtLink v-for="tag in post?.tags" :to="'/blog/category/' + tag" class="badge badge-primary">
-                {{ tag }}
-            </NuxtLink>
+    <div>
+        <TextCaption>
+            {{ createdAtFormatted }}
+        </TextCaption>
+        <div class="my-4">
+            <TextHeading variant="dark">{{ post.title }}</TextHeading>
+            <TextSubtitle>{{ post.description }}</TextSubtitle>
+        </div>
+        <div class="flex gap-2">
+            <BaseBadge v-for="tag in post?.tags" variant="red" rounded>{{ tag }}</BaseBadge>
         </div>
     </div>
 </template>

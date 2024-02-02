@@ -1,62 +1,40 @@
 <script lang="ts" setup>
 const route: any = useRoute()
 
-// [Route | Ref] => Getting current page based on first route load
-const perPage = 3
-const filter = ref('')
-const debouncedFilter = ref('')
-const currentPage = ref(parseInt(route.query.page || 1))
+// [Ref] => Getting Pagination
+const pagination: any = ref({
+    search: '',
+    perPage: 2,
+    currentPage: ref(parseInt(route.query.page || 1)),
+})
 
 // [Nuxt Content] => Querying all posts
 const queryPosts = async () => {
+    const skip = pagination.value.perPage * (pagination.value.currentPage - 1)
     const posts = await queryContent('blog')
-        .where({ title: { $contains: debouncedFilter.value } })
-        .limit(perPage)
-        .skip(perPage * (currentPage.value - 1))
+        .where({ title: { $contains: pagination.value.search } })
+        .limit(pagination.value.perPage)
+        .skip(skip)
         .find()
     return posts
 }
 
-// [Nuxt Content] => Querying total posts
-const queryTotalRows = async () => {
-    let totalRows: Array<any> | number = await queryContent('blog')
-        .where({ title: { $contains: debouncedFilter.value } })
-        .find()
-    return (totalRows = totalRows.length || 0)
-}
+// [Nuxt & Promise] => Getting all posts & total rows (Merge)
+const { data: posts, refresh: refreshPosts }: any = await useAsyncData('get-posts', async () => await queryPosts())
 
-// [Nuxt | Promise] => Merging all posts with total rows
-const getPosts = async () => {
-    const [allPosts, totalRows] = await Promise.all([queryPosts(), queryTotalRows()])
-    return { allPosts, totalRows }
-}
-
-// [Nuxt | useAsyncData] => Getting all posts & total rows
-const { data, refresh: refreshPosts } = await useAsyncData('getPosts', getPosts)
-
+// Watch => Getting Search Changes
 watch(
-    () => route.query.page,
-    (newVal) => {
-        currentPage.value = parseInt(newVal)
+    () => pagination.value.search,
+    useDebounce(() => {
+        pagination.value.currentPage = 1
         refreshPosts()
-    }
+    }, 500)
 )
-
+// Watch => Getting Current Page Changes
 watch(
-    filter,
-    useDebounce((newVal: any) => {
-        debouncedFilter.value = newVal
-        if (currentPage.value != 1) currentPage.value = 1
-        refreshPosts()
-    }, 300)
+    () => pagination.value.currentPage,
+    () => refreshPosts()
 )
-
-const blogPostsHeading: any = {
-    caption: 'Bienvenido',
-    title: 'Mi Blog',
-    description: 'Aquí podras ver mis últimas publicaciones, normalmente no subo muchas cosas',
-    position: 'center',
-}
 
 useHead({
     title: 'Blog',
@@ -65,22 +43,45 @@ useHead({
 
 <template>
     <div class="Blog">
-        <section class="BlogPosts section-spacing">
-            <BaseHeading v-bind="blogPostsHeading" />
-            <BaseInput
-                v-model="filter"
-                type="search"
-                name="search"
-                placeholder="Buscar"
-                icon="fa-solid fa-magnifying-glass"
-            />
+        <!-- Blog Posts -->
+        <section class="container my-16">
+            <!-- Header -->
+            <div class="flex flex-col items-center">
+                <div class="text-center md:w-3/6 w-full">
+                    <TextHeading class="mb-2">Blog</TextHeading>
+                    <TextSubtitle class="mb-5">
+                        Aquí podras ver mis últimas publicaciones, estaré publicando cualquier información que considere
+                        util tanto para mi como para la comunidad.
+                    </TextSubtitle>
+                    <BaseInput
+                        v-model="pagination.search"
+                        type="text"
+                        name="search"
+                        placeholder="Buscar por título..."
+                        class=""
+                    />
+                </div>
+            </div>
+            <!-- Content -->
+            <div :class="['my-16', posts.length < 1 ? 'flex justify-center text-center' : false]">
+                <template v-if="posts.length >= 1">
+                    <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">
+                        <CardPost v-for="post in posts" v-bind="post" />
+                    </div>
+                </template>
+                <template v-else>
+                    <div class="w-80 bg-stone-800 rounded-lg border border-stone-700 p-6">
+                        <h1 class="text-white text-2xl font-bold mb-2">¡Whoops!</h1>
+                        <p class="text-stone-400 font-light">Sin resultados</p>
+                    </div>
+                </template>
+            </div>
 
-            <UserPosts :posts="data?.allPosts || []" />
+            <!-- Pagination -->
             <BasePagination
-                :current-page="currentPage"
-                :total-rows="data?.totalRows || 0"
-                :per-page="perPage"
-                class="mt-8"
+                v-model="pagination.currentPage"
+                :per-page="pagination.perPage"
+                :results-length="posts.length"
             />
         </section>
     </div>

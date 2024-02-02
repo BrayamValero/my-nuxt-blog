@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const runtimeConfig = useRuntimeConfig()
 
-const description = 'Brayam Valero, Software Developer, con más de 4 años de experiencia en desarrollo front-end.'
+const description = 'Brayam Valero, Software Developer, con más de 6 años de experiencia en desarrollo front-end.'
 
 const ogTitle = 'Brayam Valero | Software Developer | Vue, Nuxt & TypeScript'
 
@@ -76,23 +76,9 @@ useHead({
 </script>
 
 <template>
-    <div class="Main">
-        <NuxtLoadingIndicator />
-        <TheNavbar />
-        <div class="Main-content container">
+    <div class="app">
+        <NuxtLayout>
             <NuxtPage />
-        </div>
-        <TheFooter />
+        </NuxtLayout>
     </div>
 </template>
-
-<style lang="scss" scoped>
-.Main {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    &-content {
-        flex: 1;
-    }
-}
-</style>

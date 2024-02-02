@@ -1,58 +1,26 @@
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core'
 
-const closeNavbar = () => (isToggled.value = false)
-
 const defaultLinks = [
     {
         to: '/',
         title: 'Inicio',
-        event: closeNavbar,
     },
     {
         to: '/about',
         title: 'Biografia',
-        event: closeNavbar,
-    },
-    {
-        to: '/projects',
-        title: 'Proyectos',
-        event: closeNavbar,
     },
     {
         to: '/blog',
         title: 'Blog',
-        event: closeNavbar,
-    },
-]
-
-const socialLinks = [
-    {
-        url: 'https://twitter.com/BrayamValero',
-        icon: 'fa-brands fa-twitter',
-        title: 'Twitter',
-    },
-    {
-        url: 'https://github.com/BrayamValero',
-        icon: 'fa-brands fa-github',
-        title: 'GitHub',
-    },
-    {
-        url: 'https://www.linkedin.com/in/brayamvalero/',
-        icon: 'fa-brands fa-linkedin',
-        title: 'LinkedIn',
     },
 ]
 
 const isToggled = ref(false)
 
-const toggleNavbar = () => {
-    isToggled.value = !isToggled.value
-}
+const toggleNavbar = () => (isToggled.value = !isToggled.value)
 
-const getToggledStatus = computed<string | null>(() => {
-    return isToggled.value ? 'active' : null
-})
+const getToggledStatus = computed<string | null>(() => (isToggled.value ? 'active' : null))
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
@@ -66,37 +34,30 @@ watch(isLargeScreen, (isLarge) => {
         <div class="TheNavbar-container">
             <h6 class="TheNavbar-brand" @click="navigateTo('/')">Brayam Valero</h6>
             <!-- Toggle Button -->
-            <button class="TheNavbar-collapse-btn" @click="toggleNavbar">
-                <ClientOnly>
-                    <font-awesome-icon icon="fa-solid fa-bars" />
-                </ClientOnly>
-            </button>
+            <BaseButton class="block lg:hidden" variant="red" size="sm" @click="toggleNavbar">
+                <font-awesome-icon icon="fa-solid fa-bars" />
+            </BaseButton>
             <!-- Collaped Content -->
             <div :class="['TheNavbar-collapse', getToggledStatus]">
                 <div class="TheNavbar-collapse-header">
                     <h6 class="TheNavbar-brand-mobile" @click="navigateTo('/')">Brayam Valero</h6>
                     <button @click="toggleNavbar" role="button" type="button">
-                        <ClientOnly>
-                            <font-awesome-icon icon="fa-solid fa-xmark" />
-                        </ClientOnly>
+                        <font-awesome-icon icon="fa-solid fa-xmark" />
                     </button>
                 </div>
                 <ul class="TheNavbar-collapse-body TheNavbar-group mx-auto">
-                    <li v-for="{ to, title, event } in defaultLinks" class="TheNavbar-item">
-                        <NuxtLink :to="to" @click="event" class="TheNavbar-link">{{ title }}</NuxtLink>
+                    <li v-for="{ to, title } in defaultLinks" class="TheNavbar-item">
+                        <NuxtLink :to="to" @click="!isLargeScreen ? toggleNavbar() : false" class="TheNavbar-link">
+                            {{ title }}
+                        </NuxtLink>
                     </li>
                 </ul>
                 <ul class="TheNavbar-collapse-body TheNavbar-group">
-                    <li v-for="{ url, icon, title } in socialLinks" class="TheNavbar-item">
+                    <li v-for="{ url, icon, title } in useSocialLinks" class="TheNavbar-item">
                         <a :href="url" class="TheNavbar-link" target="_blank">
-                            <ClientOnly>
-                                <font-awesome-icon :icon="icon" />
-                            </ClientOnly>
+                            <font-awesome-icon :icon="icon" />
                             <span>{{ title }}</span>
                         </a>
-                    </li>
-                    <li class="TheNavbar-item">
-                        <ColorMode class="TheNavbar-link" />
                     </li>
                 </ul>
             </div>
@@ -106,7 +67,8 @@ watch(isLargeScreen, (isLarge) => {
 
 <style lang="postcss">
 .TheNavbar {
-    @apply bg-stone-900 border-stone-900 border-b dark:border-stone-700;
+    @apply bg-stone-900 border-stone-700 border-b;
+
     &-container {
         @apply container relative flex flex-wrap items-center justify-between py-5 z-10;
         @screen lg {
@@ -114,7 +76,7 @@ watch(isLargeScreen, (isLarge) => {
         }
     }
     &-brand {
-        @apply cursor-pointer text-white mr-5;
+        @apply cursor-pointer text-white text-xl mr-5;
         &-mobile {
             @apply cursor-pointer text-red-500;
         }
@@ -129,12 +91,6 @@ watch(isLargeScreen, (isLarge) => {
             @apply absolute flex flex-col items-center bg-white rounded drop-shadow-md w-4/5 top-3 right-[1rem];
             @screen sm {
                 @apply w-60;
-            }
-        }
-        &-btn {
-            @apply block rounded bg-red-500 text-white px-2 py-1;
-            @screen lg {
-                @apply hidden;
             }
         }
         &-header {
@@ -159,7 +115,7 @@ watch(isLargeScreen, (isLarge) => {
     &-group {
         @apply flex flex-col;
         @screen lg {
-            @apply flex-row gap-5;
+            @apply flex-row gap-8;
         }
     }
     &-item {
@@ -169,12 +125,12 @@ watch(isLargeScreen, (isLarge) => {
         }
     }
     &-link {
-        @apply w-full flex items-center gap-3 text-[14px] text-stone-400 font-light px-4 py-2 hover:underline hover:text-red-500;
+        @apply transition ease-in-out duration-300 w-full flex items-center gap-3 text-stone-400 font-light px-4 py-2 decoration-red-600 hover:underline hover:underline-offset-2;
         @screen lg {
             @apply p-0 dark:text-stone-400;
         }
         & > svg {
-            @apply text-stone-400;
+            @apply text-stone-400 transition ease-in-out duration-300;
             @screen lg {
                 @apply text-white hover:text-red-500;
             }

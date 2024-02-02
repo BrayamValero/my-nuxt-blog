@@ -6,8 +6,9 @@ useHead({
 
 <template>
     <div class="About">
-        <section class="section-spacing">
-            <ContentDoc class="prose dark:prose-invert max-w-none" />
+        <!-- Markdown -->
+        <section class="container my-16">
+            <ContentDoc class="prose sm:prose-base prose-sm prose-invert max-w-none" />
         </section>
     </div>
 </template>
