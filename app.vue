@@ -76,23 +76,9 @@ useHead({
 </script>
 
 <template>
-    <div class="Main">
-        <NuxtLoadingIndicator />
-        <TheNavbar />
-        <div class="Main-content">
+    <div class="app">
+        <NuxtLayout>
             <NuxtPage />
-        </div>
-        <TheFooter />
+        </NuxtLayout>
     </div>
 </template>
-
-<style lang="scss" scoped>
-.Main {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    &-content {
-        flex: 1;
-    }
-}
-</style>

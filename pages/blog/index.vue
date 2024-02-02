@@ -38,7 +38,7 @@ useHead({
 
 <template>
     <div class="Blog">
-        <!-- Section -->
+        <!-- Blog Posts -->
         <section class="container my-16">
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Blog</h1>

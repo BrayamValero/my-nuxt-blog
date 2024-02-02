@@ -47,45 +47,38 @@ useHead({
 
 <template>
     <div class="Home">
-        <!-- Section -->
-        <section class="Home-hero">
-            <div class="Home-hero-overlay">
-                <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 content-center h-full">
-                    <div class="text-center sm:text-center md:text-start">
-                        <h1 class="xl:text-4xl lg:text-3xl md:text-2xl text-xl text-white font-bold mb-3">
-                            Brayam Valero
-                        </h1>
-                        <p
-                            class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 lg:text-lg md:text-base sm:text-base text-sm text-stone-400 font-light"
-                        >
-                            Soy un
-                            <span class="font-bold text-white underline underline-offset-2 decoration-red-500">
-                                Software Developer
-                            </span>
-                            con +6 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue,
-                            Nuxt, y TypeScript me convierten en un desarrollador y diseñador excepcional. Mi
-                            versatilidad incluye habilidades de backend, y siempre estoy ansioso por aprender nuevas
-                            tecnologías.
-                        </p>
+        <!-- Hero -->
+        <section class="container grid grid-cols-1 md:grid-cols-2 gap-8 content-center h-[90vh]">
+            <div class="text-center sm:text-center md:text-start">
+                <h1 class="xl:text-4xl lg:text-3xl md:text-2xl text-xl text-white font-bold mb-3">Brayam Valero</h1>
+                <p
+                    class="leading-7 sm:leading-8 md:leading-8 xl:leading-8 lg:text-lg md:text-base sm:text-base text-sm text-stone-400 font-light"
+                >
+                    Soy un
+                    <span class="font-bold text-white underline underline-offset-2 decoration-red-500">
+                        Software Developer
+                    </span>
+                    con +6 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue, Nuxt, y
+                    TypeScript me convierten en un desarrollador y diseñador excepcional. Mi versatilidad incluye
+                    habilidades de backend, y siempre estoy ansioso por aprender nuevas tecnologías.
+                </p>
 
-                        <BaseButton class="mt-6" variant="red" size="lg" rounded>
-                            Ver Curriculum
-                            <ClientOnly>
-                                <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
-                            </ClientOnly>
-                        </BaseButton>
-                    </div>
-                    <div class="order-first md:order-last flex justify-center items-center">
-                        <img
-                            class="w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 rounded-full"
-                            src="/jpg/profile-avatar.jpg"
-                            alt="profile-avatar"
-                        />
-                    </div>
-                </div>
+                <BaseButton class="mt-6" variant="red" size="lg" rounded>
+                    Ver Curriculum
+                    <ClientOnly>
+                        <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
+                    </ClientOnly>
+                </BaseButton>
+            </div>
+            <div class="order-first md:order-last flex justify-center items-center">
+                <img
+                    class="w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 rounded-full"
+                    src="/jpg/profile-avatar.jpg"
+                    alt="profile-avatar"
+                />
             </div>
         </section>
-        <!-- Section -->
+        <!-- Experience -->
         <section class="container mb-16">
             <div class="mb-8 text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
@@ -97,7 +90,7 @@ useHead({
                 <CardSkills v-for="skill in skills" v-bind="skill" />
             </div>
         </section>
-        <!-- Section -->
+        <!-- Skills -->
         <section class="container my-16">
             <div class="text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
@@ -117,7 +110,7 @@ useHead({
                 </BaseButton>
             </div>
         </section>
-        <!-- Section -->
+        <!-- Blog Posts -->
         <section class="container my-16">
             <div class="mb-8 text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Post Recientes</h1>
@@ -139,18 +132,3 @@ useHead({
         </section>
     </div>
 </template>
-
-<style lang="postcss">
-.Home-hero {
-    @apply h-[90vh];
-    background-image: linear-gradient(#44403c 0.8px, transparent 0.8px),
-        linear-gradient(90deg, #44403c 0.8px, transparent 0.8px), linear-gradient(#44403c 0.4px, transparent 0.4px),
-        linear-gradient(90deg, #44403c 0.4px, #1c1917 0.4px);
-    background-size: 40px 40px, 40px 40px;
-    background-position: -0.8px -0.8px, -0.8px -0.8px, -0.4px -0.4px, -0.4px -0.4px;
-    &-overlay {
-        height: inherit;
-        background-image: linear-gradient(to top, rgba(28, 25, 23, 1), rgba(28, 25, 23, 0.15));
-    }
-}
-</style>
