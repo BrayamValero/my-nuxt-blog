@@ -11,7 +11,7 @@ const createdAtFormatted = computed(() => {
 </script>
 
 <template>
-    <div class="PostHeader">
+    <div>
         <p class="text-sm text-red-500">{{ createdAtFormatted }}</p>
         <h1 class="font-bold text-stone-800 text-4xl mt-4 mb-1">{{ post.title }}</h1>
         <p class="text-lg font-light text-stone-500">{{ post.description }}</p>

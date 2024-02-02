@@ -43,20 +43,24 @@ useHead({
     <div class="Blog">
         <!-- Blog Posts -->
         <section class="container my-16">
-            <div class="flex flex-col items-center text-center">
-                <h1 class="text-white text-2xl font-bold mb-2">Blog</h1>
-                <p class="text-stone-400 leading-8 font-light md:w-3/6 w-3/4">
-                    Aquí podras ver mis últimas publicaciones, estaré publicando cualquier información que considere
-                    util tanto para mi como para la comunidad.
-                </p>
-                <BaseInput
-                    v-model="pagination.search"
-                    type="text"
-                    name="search"
-                    placeholder="Buscar por título..."
-                    class="md:w-3/6 w-3/4 mt-8"
-                />
+            <!-- Header -->
+            <div class="flex flex-col items-center">
+                <div class="text-center md:w-3/6 w-full">
+                    <TextHeading class="mb-2">Blog</TextHeading>
+                    <TextSubtitle class="mb-5">
+                        Aquí podras ver mis últimas publicaciones, estaré publicando cualquier información que considere
+                        util tanto para mi como para la comunidad.
+                    </TextSubtitle>
+                    <BaseInput
+                        v-model="pagination.search"
+                        type="text"
+                        name="search"
+                        placeholder="Buscar por título..."
+                        class=""
+                    />
+                </div>
             </div>
+            <!-- Content -->
             <div :class="['my-16', posts.length < 1 ? 'flex justify-center text-center' : false]">
                 <template v-if="posts.length >= 1">
                     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">

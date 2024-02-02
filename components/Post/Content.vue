@@ -21,11 +21,11 @@ const formattedContent = (links: Array<any>) => {
 </script>
 
 <template>
-    <aside class="PostContent card">
-        <div class="card-header">
-            <p class="text-base text-stone-800">Tabla de contenido</p>
+    <aside class="bg-white border border-stone-300 rounded-lg">
+        <div class="p-3">
+            <p class="font-bold text-base text-stone-800">Tabla de contenido</p>
         </div>
-        <div class="card-body">
+        <div class="p-3 border-t border-stone-300">
             <ul v-if="content.length > 0">
                 <li
                     v-for="{ id, text, depth } in formattedContent(content)"
