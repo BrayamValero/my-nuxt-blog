@@ -113,7 +113,7 @@ useHead({
             <!-- Action -->
             <div class="text-center">
                 <BaseButton variant="red" to="/about#habilidades" rounded>
-                    Ver más
+                    Ver todas mis habilidades
                     <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
                 </BaseButton>
             </div>
@@ -135,7 +135,7 @@ useHead({
             <!-- Action -->
             <div class="text-center">
                 <BaseButton variant="red" to="/blog" rounded>
-                    Ver más
+                    Ver todos los posts
                     <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
                 </BaseButton>
             </div>

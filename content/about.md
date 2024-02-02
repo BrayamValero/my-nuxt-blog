@@ -50,6 +50,6 @@ Me considero una persona honesta, perfeccionista, comunicativa, me gustan los re
 | HTML & CSS (SCSS)           | PHP                   | Git / GitHub | Adaptabilidad           |
 | JavaScript                  | Laravel               | Postman      | Liderazgo               |
 | Vue (Composition & Options) | MySQL                 | VS Code      | Comunicación            |
-| Nuxt                        | Node JS (Aprendiendo) | Virtual Box  | Resolución de problemas |
+| Nuxt                        | Node JS               | Virtual Box  | Resolución de problemas |
 | TypeScript                  | Python (Aprendiendo)  | Vagrant      | Positividad             |
-| React (Aprendiendo)         | MongoDB (Aprendiendo) | Figma        | Gestión del tiempo      |
+| React                       | MongoDB (Aprendiendo) | Figma        | Gestión del tiempo      |
