@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const getVariant = computed<string>(() => {
     const variant = {
-        light: 'text-stone-800 dark:text-white',
+        light: 'text-white',
         dark: 'text-stone-800',
     }
 

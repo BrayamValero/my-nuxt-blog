@@ -32,14 +32,14 @@ const createdAtFormatted = computed(() => `Publicado el ${useFormattedDate(props
             </div>
         </div>
         <div class="rounded-b-lg flex-1 p-6 bg-white">
-            <h2 class="font-bold text-stone-800 sm:text-xl text-lg inline-flex">
+            <h2 class="font-bold text-stone-800 sm:text-xl text-lg">
                 <NuxtLink :to="_path" class="line-clamp-2">
                     {{ title }}
                 </NuxtLink>
             </h2>
-            <p class="font-light text-stone-500 md:text-base text-sm md:leading-7 leading:6 line-clamp-2">
+            <TextParagraph>
                 {{ description }}
-            </p>
+            </TextParagraph>
             <TextCaption class="mt-2">
                 {{ createdAtFormatted }}
             </TextCaption>
