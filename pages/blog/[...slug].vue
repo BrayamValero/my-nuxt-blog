@@ -33,7 +33,7 @@ useHead({
                 <!-- Post: Content -->
                 <article class="bg-white border border-stone-300 rounded-lg md:col-span-8 col-span-full">
                     <PostHeader class="border-b border-stone-300 p-7" :post="page" />
-                    <div class="p-7 prose">
+                    <div class="prose sm:prose-base prose-sm p-7">
                         <ContentRenderer :value="page">
                             <template #empty>
                                 <p>No se ha encontrado nada</p>
