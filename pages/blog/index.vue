@@ -1,52 +1,35 @@
 <script lang="ts" setup>
-// const route: any = useRoute()
+// [Ref] => Getting Pagination
+const pagination: any = ref({
+    search: '',
+    perPage: 2,
+    currentPage: 1,
+})
 
-// // [Route | Ref] => Getting current page based on first route load
-// const perPage = 3
-// const filter = ref('')
-// const debouncedFilter = ref('')
-// const currentPage = ref(parseInt(route.query.page || 1))
+// [Nuxt Content] => Querying all posts
+const queryPosts = async () => {
+    const skip = pagination.value.perPage * (pagination.value.currentPage - 1)
+    const posts = await queryContent('blog')
+        .where({ title: { $contains: pagination.value.search } })
+        .limit(pagination.value.perPage)
+        .skip(skip)
+        .find()
+    return posts
+}
 
-// // [Nuxt Content] => Querying all posts
-// const queryPosts = async () => {
-//     const posts = await queryContent('blog')
-//         .where({ title: { $contains: debouncedFilter.value } })
-//         .limit(perPage)
-//         .skip(perPage * (currentPage.value - 1))
-//         .find()
-//     return posts
-// }
+// [Nuxt & Promise] => Getting all posts & total rows (Merge)
+const { data: posts, refresh: refreshPosts }: any = await useAsyncData('get-posts', async () => await queryPosts(), {
+    watch: [pagination.value],
+})
 
-// // [Nuxt Content] => Querying total posts
-// const queryTotalRows = async () => {
-//     let totalRows: Array<any> | number = await queryContent('blog')
-//         .where({ title: { $contains: debouncedFilter.value } })
-//         .find()
-//     return (totalRows = totalRows.length || 0)
-// }
-
-// // [Nuxt & Promise] => Getting all posts & total rows (Merge)
-// const { data, refresh } = await useAsyncData(async () => {
-//     const [allPosts, totalRows] = await Promise.all([queryPosts(), queryTotalRows()])
-//     return { allPosts, totalRows }
-// })
-
-// watch(
-//     () => route.query.page,
-//     (newVal) => {
-//         currentPage.value = parseInt(newVal)
-//         refresh()
-//     }
-// )
-
-// watch(
-//     filter,
-//     useDebounce((newVal: any) => {
-//         debouncedFilter.value = newVal
-//         if (currentPage.value != 1) currentPage.value = 1
-//         refresh()
-//     }, 300)
-// )
+// Watch => Getting Search Results
+watch(
+    () => pagination.value.search,
+    useDebounce(() => {
+        pagination.value.currentPage = 1
+        refreshPosts()
+    }, 500)
+)
 
 useHead({
     title: 'Blog',
@@ -55,13 +38,32 @@ useHead({
 
 <template>
     <div class="Blog">
-        <section class="container">
-            <h1>Posts</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit provident deleniti nobis
-                nesciunt quae laudantium, sit cumque, repudiandae quam ipsa assumenda inventore, eveniet maxime
-                blanditiis quidem quas eaque dicta voluptate!
-            </p>
+        <!-- Section -->
+        <section class="container my-16">
+            <div class="flex flex-col items-center text-center mb-8">
+                <h1 class="text-white text-2xl font-bold mb-2">Blog</h1>
+                <p class="text-stone-400 font-light">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
+                </p>
+
+                <BaseInput
+                    v-model="pagination.search"
+                    type="text"
+                    name="search"
+                    placeholder="Buscar"
+                    class="w-80 mt-8"
+                />
+            </div>
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 my-8">
+                <CardPost v-for="post in posts" v-bind="post" />
+            </div>
+            <div>
+                <BasePagination
+                    v-model="pagination.currentPage"
+                    :per-page="pagination.perPage"
+                    :results-length="posts.length"
+                />
+            </div>
         </section>
     </div>
 </template>

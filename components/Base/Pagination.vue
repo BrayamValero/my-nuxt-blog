@@ -1,113 +1,40 @@
 <script lang="ts" setup>
 interface Props {
-    currentPage: number
-    totalRows: number
-    perPage?: number
-    limit?: number
-    showFirstLast?: boolean
-    showPrevNext?: boolean
+    modelValue: number
+    perPage: number
+    resultsLength: number
 }
 
-const props = withDefaults(defineProps<Props>(), {
-    perPage: 5,
-    limit: 3,
-    showFirstLast: true,
-    showPrevNext: true,
-})
+const props = defineProps<Props>()
 
-const getLastPage = computed(() => Math.ceil(props.totalRows / props.perPage))
-const getPrevPage = computed(() => (props.currentPage > 1 ? props.currentPage - 1 : props.currentPage))
-const getNextPage = computed(() => (props.currentPage < getLastPage.value ? props.currentPage + 1 : props.currentPage))
-const getTotalPagination = computed<number>(() => Math.ceil(props.totalRows / props.perPage))
+interface Emits {
+    (e: 'update:modelValue', value: string): void
+}
 
-const getLinks = computed<Array<number | string>>(() => {
-    const limit: number = props.limit
-    const total: number = getTotalPagination.value
-    const current: number = props.currentPage
-    const numShown: number = Math.min(limit, total)
-    let first: number = current - Math.floor(numShown / 2)
-    first = Math.max(first, 1)
-    first = Math.min(first, total - numShown + 1)
-    const result = [...Array(numShown)].map((k, i) => i + first)
-    if (limit < total) {
-        const first = result[0]
-        const last = result[result.length - 1]
-        if (first === 1) {
-            return [...result, '...']
-        } else if (last === total) {
-            return ['...', ...result]
-        }
-        return ['...', ...result, '...']
-    }
-    return result
-})
+const emit = defineEmits<Emits>()
+
+const changePage = (value: any) => emit('update:modelValue', value)
 </script>
 
 <template>
     <ul class="BasePagination">
         <li class="BasePagination-item">
-            <NuxtLink
-                v-if="showFirstLast"
-                class="BasePagination-link"
-                :to="{
-                    path: $route.path,
-                    query: { page: 1 },
-                }"
+            <a
+                href="javascript:void(0)"
+                :class="['BasePagination-link', modelValue === 1 ? 'disabled' : false]"
+                @click="changePage(modelValue - 1)"
             >
-                Primero
-            </NuxtLink>
+                Anterior
+            </a>
         </li>
         <li class="BasePagination-item">
-            <NuxtLink
-                v-if="showPrevNext"
-                class="BasePagination-link"
-                :to="{
-                    path: $route.path,
-                    query: { page: getPrevPage },
-                }"
+            <a
+                href="javascript:void(0)"
+                :class="['BasePagination-link', resultsLength !== perPage ? 'disabled' : false]"
+                @click="changePage(modelValue + 1)"
             >
-                <ClientOnly>
-                    <font-awesome-icon icon="fa-solid fa-chevron-left" />
-                </ClientOnly>
-            </NuxtLink>
-        </li>
-        <li v-for="index in getLinks" :key="index" class="BasePagination-item">
-            <NuxtLink
-                class="BasePagination-link"
-                :to="{
-                    path: $route.path,
-                    query: { page: index },
-                }"
-                :class="{ disabled: index === '...', active: index === currentPage }"
-            >
-                {{ index }}
-            </NuxtLink>
-        </li>
-        <li class="BasePagination-item">
-            <NuxtLink
-                v-if="showPrevNext"
-                class="BasePagination-link"
-                :to="{
-                    path: $route.path,
-                    query: { page: getNextPage },
-                }"
-            >
-                <ClientOnly>
-                    <font-awesome-icon icon="fa-solid fa-chevron-right" />
-                </ClientOnly>
-            </NuxtLink>
-        </li>
-        <li class="BasePagination-item">
-            <NuxtLink
-                v-if="showFirstLast"
-                class="BasePagination-link"
-                :to="{
-                    path: $route.path,
-                    query: { page: getLastPage },
-                }"
-            >
-                Último
-            </NuxtLink>
+                Siguiente
+            </a>
         </li>
     </ul>
 </template>
@@ -117,28 +44,16 @@ const getLinks = computed<Array<number | string>>(() => {
     @apply flex flex-row justify-center;
     &-item {
         &:first-child .BasePagination-link {
-            margin-left: 0;
-            border-top-left-radius: 0.25rem;
-            border-bottom-left-radius: 0.25rem;
+            @apply ml-0 rounded-l;
         }
         &:last-child .BasePagination-link {
-            border-top-right-radius: 0.25rem;
-            border-bottom-right-radius: 0.25rem;
+            @apply rounded-r;
         }
     }
     &-link {
-        position: relative;
-        margin-left: -1px;
-        @apply text-[.85rem] text-stone-500 bg-white font-light border border-stone-300 py-2 px-3;
-        &:hover {
-            @apply bg-stone-400;
-        }
+        @apply relative -ml-[1px] text-base text-white bg-stone-800 border border-stone-700 px-5 py-2.5 hover:bg-stone-700;
         &.disabled {
-            @apply text-stone-400 pointer-events-none;
-        }
-        &.active {
-            z-index: 1;
-            @apply bg-stone-800 text-white;
+            @apply text-stone-500 pointer-events-none;
         }
     }
 }
