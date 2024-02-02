@@ -8,7 +8,7 @@ useHead({
     <div class="About">
         <!-- Markdown -->
         <section class="container my-16">
-            <!-- <ContentDoc class="prose prose-invert max-w-none" /> -->
+            <ContentDoc class="prose prose-invert max-w-none" />
         </section>
     </div>
 </template>
