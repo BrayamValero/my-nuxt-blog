@@ -1,9 +1,11 @@
 <script lang="ts" setup>
+const route: any = useRoute()
+
 // [Ref] => Getting Pagination
 const pagination: any = ref({
     search: '',
     perPage: 2,
-    currentPage: 1,
+    currentPage: ref(parseInt(route.query.page || 1)),
 })
 
 // [Nuxt Content] => Querying all posts

@@ -13,7 +13,16 @@ interface Emits {
 
 const emit = defineEmits<Emits>()
 
-const changePage = (value: any) => emit('update:modelValue', value)
+const { path } = useRoute()
+const router = useRouter()
+
+const changePage = (page: any) => {
+    emit('update:modelValue', page)
+    router.push({
+        path,
+        query: { page },
+    })
+}
 </script>
 
 <template>
