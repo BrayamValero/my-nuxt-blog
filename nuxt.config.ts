@@ -1,13 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: [
-        '@nuxt/content',
-        '@nuxtjs/tailwindcss',
-        '@nuxtjs/color-mode',
-        '@vueuse/nuxt',
-        '@nuxt/image-edge',
-        'nuxt-svgo',
-    ],
+    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxt/image-edge', 'nuxt-svgo'],
     content: {
         documentDriven: true,
         highlight: {
@@ -17,11 +10,7 @@ export default defineNuxtConfig({
             preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'],
         },
     },
-    colorMode: {
-        preference: 'dark',
-        fallback: 'dark',
-        classSuffix: '',
-    },
+
     css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
     postcss: {
         plugins: {
