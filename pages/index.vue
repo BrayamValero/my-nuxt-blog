@@ -5,22 +5,26 @@ const { data: posts }: any = await useAsyncData('getPosts', () => queryContent('
 const skills: any = [
     {
         name: 'UI / UX Design',
-        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        description:
+            'Experto en la creación de interfaces estéticas y funcionales, destacando la precisión visual y la usabilidad',
         icon: 'fa-solid fa-bezier-curve',
     },
     {
         name: 'Clean code',
-        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        description:
+            'Especializado en codificación meticulosa, priorizando la legibilidad y mantenibilidad del código para proyectos eficientes',
         icon: 'fa-solid fa-code',
     },
     {
         name: 'QA Testing',
-        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        description:
+            'Profesional en pruebas de calidad, garantizando la integridad funcional y la detección precisa de posibles problemas',
         icon: 'fa-solid fa-code-pull-request',
     },
     {
         name: 'Project Management',
-        description: 'Me especializo en crear interfaces limpias, funcionales y pixel-perfect',
+        description:
+            'Gestión de proyectos centrada en resultados excepcionales, desde interfaces pulidas hasta una ejecución eficiente',
         icon: 'fa-regular fa-clipboard',
     },
 ]
@@ -80,10 +84,11 @@ useHead({
         </section>
         <!-- Experience -->
         <section class="container mb-16">
-            <div class="mb-8 text-center">
+            <div class="flex flex-col items-center text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Experiencia Técnica</h1>
-                <p class="text-stone-400 font-light">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
+                <p class="text-stone-400 font-light leading-8 md:w-3/4 w-full mb-8">
+                    Soy un profesional multidisciplinario que fusiona arte y código para crear experiencias
+                    excepcionales.
                 </p>
             </div>
             <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
