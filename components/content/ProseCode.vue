@@ -32,9 +32,9 @@ const { copy, copied } = useClipboard()
 
         <slot />
 
-        <button class="btn btn-primary" @click="!copied ? copy(code) : null">
+        <BaseButton variant="red" size="sm" @click="!copied ? copy(code) : null">
             {{ copied ? 'Copiado' : 'Copiar Código' }}
-        </button>
+        </BaseButton>
     </div>
 </template>
 

@@ -23,7 +23,7 @@ const formattedContent = (links: Array<any>) => {
 <template>
     <aside class="PostContent card">
         <div class="card-header">
-            <p class="text-title">Tabla de contenido</p>
+            <p class="text-base text-stone-800">Tabla de contenido</p>
         </div>
         <div class="card-body">
             <ul v-if="content.length > 0">
@@ -32,12 +32,12 @@ const formattedContent = (links: Array<any>) => {
                     :class="depth === 3 ? 'pl-8' : 'pl-4'"
                     :key="id"
                 >
-                    <NuxtLink :href="`#${id}`" class="text-description hover:underline">
+                    <NuxtLink :href="`#${id}`" class="text-sm font-light text-stone-500 hover:underline">
                         {{ text }}
                     </NuxtLink>
                 </li>
             </ul>
-            <p v-else class="text-description">Whoops, no hay contenido definido</p>
+            <p v-else class="text-sm font-light text-stone-500">Whoops, no hay contenido definido</p>
         </div>
     </aside>
 </template>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const runtimeConfig = useRuntimeConfig()
 
-const description = 'Brayam Valero, Software Developer, con más de 4 años de experiencia en desarrollo front-end.'
+const description = 'Brayam Valero, Software Developer, con más de 6 años de experiencia en desarrollo front-end.'
 
 const ogTitle = 'Brayam Valero | Software Developer | Vue, Nuxt & TypeScript'
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Props {
-    rounded: boolean
+    rounded?: boolean
     variant: 'alternative' | 'dark' | 'light' | 'blue' | 'yellow' | 'red' | 'green'
 }
 

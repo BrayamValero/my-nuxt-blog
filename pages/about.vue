@@ -7,7 +7,8 @@ useHead({
 <template>
     <div class="About container">
         <section class="section-spacing">
-            <ContentDoc class="prose dark:prose-invert max-w-none" />
+            <!-- dark:prose-invert -->
+            <ContentDoc class="prose prose-invert max-w-none" />
         </section>
     </div>
 </template>
