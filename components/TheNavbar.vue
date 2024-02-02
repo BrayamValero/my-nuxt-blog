@@ -35,18 +35,14 @@ watch(isLargeScreen, (isLarge) => {
             <h6 class="TheNavbar-brand" @click="navigateTo('/')">Brayam Valero</h6>
             <!-- Toggle Button -->
             <BaseButton class="block lg:hidden" variant="red" size="sm" @click="toggleNavbar">
-                <ClientOnly>
-                    <font-awesome-icon icon="fa-solid fa-bars" />
-                </ClientOnly>
+                <font-awesome-icon icon="fa-solid fa-bars" />
             </BaseButton>
             <!-- Collaped Content -->
             <div :class="['TheNavbar-collapse', getToggledStatus]">
                 <div class="TheNavbar-collapse-header">
                     <h6 class="TheNavbar-brand-mobile" @click="navigateTo('/')">Brayam Valero</h6>
                     <button @click="toggleNavbar" role="button" type="button">
-                        <ClientOnly>
-                            <font-awesome-icon icon="fa-solid fa-xmark" />
-                        </ClientOnly>
+                        <font-awesome-icon icon="fa-solid fa-xmark" />
                     </button>
                 </div>
                 <ul class="TheNavbar-collapse-body TheNavbar-group mx-auto">
@@ -59,9 +55,7 @@ watch(isLargeScreen, (isLarge) => {
                 <ul class="TheNavbar-collapse-body TheNavbar-group">
                     <li v-for="{ url, icon, title } in useSocialLinks" class="TheNavbar-item">
                         <a :href="url" class="TheNavbar-link" target="_blank">
-                            <ClientOnly>
-                                <font-awesome-icon :icon="icon" />
-                            </ClientOnly>
+                            <font-awesome-icon :icon="icon" />
                             <span>{{ title }}</span>
                         </a>
                     </li>

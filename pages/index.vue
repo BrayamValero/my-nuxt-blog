@@ -66,9 +66,7 @@ useHead({
                 </TextSubtitle>
                 <BaseButton class="mt-6" variant="red" size="lg" rounded>
                     Ver Curriculum
-                    <ClientOnly>
-                        <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
-                    </ClientOnly>
+                    <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
                 </BaseButton>
             </div>
             <div class="md:order-last order-first flex justify-center items-center">
@@ -116,9 +114,7 @@ useHead({
             <div class="text-center">
                 <BaseButton variant="red" to="/about#habilidades" rounded>
                     Ver más
-                    <ClientOnly>
-                        <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
-                    </ClientOnly>
+                    <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
                 </BaseButton>
             </div>
         </section>
@@ -140,9 +136,7 @@ useHead({
             <div class="text-center">
                 <BaseButton variant="red" to="/blog" rounded>
                     Ver más
-                    <ClientOnly>
-                        <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
-                    </ClientOnly>
+                    <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
                 </BaseButton>
             </div>
         </section>

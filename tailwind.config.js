@@ -11,7 +11,6 @@ module.exports = {
                 '2xl': '5rem',
             },
         },
-        darkSelector: '.dark',
         extend: {
             typography: (theme) => ({
                 DEFAULT: {
@@ -48,17 +47,5 @@ module.exports = {
             }),
         },
     },
-    content: [
-        'components/**/*.{vue,js,ts}',
-        'layouts/**/*.vue',
-        'pages/**/*.vue',
-        'composables/**/*.{js,ts}',
-        'plugins/**/*.{js,ts}',
-        'App.{js,ts,vue}',
-        'app.{js,ts,vue}',
-        'Error.{js,ts,vue}',
-        'error.{js,ts,vue}',
-        'content/**/*.md',
-    ],
     plugins: [require('@tailwindcss/typography')],
 }

@@ -16,9 +16,7 @@ const getCurrentyear = () => {
                         class="text-base text-white transition ease-in-out duration-300 hover:text-red-500"
                         target="_blank"
                     >
-                        <ClientOnly>
-                            <font-awesome-icon :icon="icon" />
-                        </ClientOnly>
+                        <font-awesome-icon :icon="icon" />
                     </a>
                 </li>
             </ul>

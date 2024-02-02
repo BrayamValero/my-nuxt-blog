@@ -20,12 +20,7 @@ export default defineNuxtConfig({
     colorMode: {
         preference: 'dark',
         fallback: 'dark',
-        classPrefix: '',
         classSuffix: '',
-        hid: 'nuxt-color-mode-script',
-        globalName: '__NUXT_COLOR_MODE__',
-        componentName: 'ColorScheme',
-        storageKey: 'nuxt-color-mode',
     },
     css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
     postcss: {
