@@ -6,6 +6,24 @@ export const useFormattedDate = (date: any) => {
     })
 }
 
+export const useSocialLinks = [
+    {
+        url: 'https://twitter.com/brayamvalero',
+        icon: 'fa-brands fa-twitter',
+        title: 'Twitter',
+    },
+    {
+        url: 'https://github.com/brayamvalero',
+        icon: 'fa-brands fa-github',
+        title: 'GitHub',
+    },
+    {
+        url: 'https://www.linkedin.com/in/brayamvalerove/',
+        icon: 'fa-brands fa-linkedin',
+        title: 'LinkedIn',
+    },
+]
+
 export const useHumanRedableDate = (date: any) => {
     const SECONDS_AGO = Math.round((Date.now() - Number(new Date(date))) / 1000)
 
@@ -36,7 +54,7 @@ export const useHumanRedableDate = (date: any) => {
     return `hace ${count} ${unit}${count > 1 && unit === 'mes' ? 'es' : count > 1 ? 's' : ''}`
 }
 
-export const useDebounce = (fn, delay) => {
+export const useDebounce = (fn: Function, delay: number) => {
     var timeoutID: any = null
     return function () {
         clearTimeout(timeoutID)

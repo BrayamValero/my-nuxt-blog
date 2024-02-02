@@ -1,19 +1,4 @@
 <script lang="ts" setup>
-const socialLinks = [
-    {
-        url: 'https://twitter.com/BrayamValero',
-        icon: 'fa-brands fa-twitter',
-    },
-    {
-        url: 'https://github.com/BrayamValero',
-        icon: 'fa-brands fa-github',
-    },
-    {
-        url: 'https://www.linkedin.com/in/brayamvalero/',
-        icon: 'fa-brands fa-linkedin',
-    },
-]
-
 const getCurrentyear = () => {
     const date = new Date()
     return date.getFullYear()
@@ -23,9 +8,9 @@ const getCurrentyear = () => {
 <template>
     <footer class="TheFooter">
         <div class="TheFooter-container">
-            <p class="text-stone-400 font-light">©{{ getCurrentyear() }} - Brayam Valero. All Rights Reserved.</p>
+            <TextParagraph>©{{ getCurrentyear() }} - Brayam Valero. All Rights Reserved.</TextParagraph>
             <ul class="TheFooter-group">
-                <li v-for="{ url, icon } in socialLinks" class="TheFooter-item">
+                <li v-for="{ url, icon } in useSocialLinks" class="TheFooter-item">
                     <a
                         :href="url"
                         class="text-base text-white transition ease-in-out duration-300 hover:text-red-500"

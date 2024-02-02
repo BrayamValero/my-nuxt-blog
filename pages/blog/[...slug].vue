@@ -31,7 +31,7 @@ useHead({
         <section class="container my-16">
             <div class="grid grid-cols-12 gap-6">
                 <!-- Post: Content -->
-                <article class="bg-white border border-stone-300 rounded-lg col-span-full sm:col-span-8">
+                <article class="bg-white border border-stone-300 rounded-lg md:col-span-8 col-span-full">
                     <PostHeader class="border-b border-stone-300 p-7" :post="page" />
                     <div class="p-7 prose">
                         <ContentRenderer :value="page">
@@ -42,7 +42,7 @@ useHead({
                     </div>
                 </article>
                 <!-- Post: Content -->
-                <PostContent :content="toc.links" class="col-span-full sm:col-span-4 self-start" />
+                <PostContent :content="toc.links" class="hidden md:block col-span-4 self-start" />
                 <PostSurround :prev="prev" :next="next" />
             </div>
         </section>

@@ -55,17 +55,15 @@ useHead({
         <section class="container grid grid-cols-1 md:grid-cols-2 gap-8 content-center h-[90vh]">
             <div class="md:text-start text-center">
                 <h1 class="xl:text-4xl lg:text-3xl md:text-2xl text-xl text-white font-bold mb-3">Brayam Valero</h1>
-                <p
-                    class="xl:leading-8 sm:leading-8 leading-7 lg:text-lg sm:text-base text-sm text-stone-400 font-light"
-                >
+                <TextSubtitle>
                     Soy un
                     <span class="font-bold text-white underline underline-offset-2 decoration-red-500">
-                        Software Developer
-                    </span>
+                        Software Developer</span
+                    >
                     con +6 años de experiencia, mi enfoque en pixel perfect y mi dominio de JavaScript, Vue, Nuxt, y
                     TypeScript me convierten en un desarrollador y diseñador excepcional. Mi versatilidad incluye
                     habilidades de backend, y siempre estoy ansioso por aprender nuevas tecnologías.
-                </p>
+                </TextSubtitle>
                 <BaseButton class="mt-6" variant="red" size="lg" rounded>
                     Ver Curriculum
                     <ClientOnly>

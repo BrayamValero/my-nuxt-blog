@@ -16,24 +16,6 @@ const defaultLinks = [
     },
 ]
 
-const socialLinks = [
-    {
-        url: 'https://twitter.com/BrayamValero',
-        icon: 'fa-brands fa-twitter',
-        title: 'Twitter',
-    },
-    {
-        url: 'https://github.com/BrayamValero',
-        icon: 'fa-brands fa-github',
-        title: 'GitHub',
-    },
-    {
-        url: 'https://www.linkedin.com/in/brayamvalero/',
-        icon: 'fa-brands fa-linkedin',
-        title: 'LinkedIn',
-    },
-]
-
 const isToggled = ref(false)
 
 const toggleNavbar = () => (isToggled.value = !isToggled.value)
@@ -75,7 +57,7 @@ watch(isLargeScreen, (isLarge) => {
                     </li>
                 </ul>
                 <ul class="TheNavbar-collapse-body TheNavbar-group">
-                    <li v-for="{ url, icon, title } in socialLinks" class="TheNavbar-item">
+                    <li v-for="{ url, icon, title } in useSocialLinks" class="TheNavbar-item">
                         <a :href="url" class="TheNavbar-link" target="_blank">
                             <ClientOnly>
                                 <font-awesome-icon :icon="icon" />
