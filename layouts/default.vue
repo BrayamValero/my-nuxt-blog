@@ -30,3 +30,9 @@
     min-height: calc(80vh);
 }
 </style>
+
+<style lang="postcss">
+.router-link-active {
+    @apply !font-bold;
+}
+</style>

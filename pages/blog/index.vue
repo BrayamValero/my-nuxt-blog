@@ -18,17 +18,20 @@ const queryPosts = async () => {
 }
 
 // [Nuxt & Promise] => Getting all posts & total rows (Merge)
-const { data: posts, refresh: refreshPosts }: any = await useAsyncData('get-posts', async () => await queryPosts(), {
-    watch: [pagination.value],
-})
+const { data: posts, refresh: refreshPosts }: any = await useAsyncData('get-posts', async () => await queryPosts())
 
-// Watch => Getting Search Results
+// Watch => Getting Search Changes
 watch(
     () => pagination.value.search,
     useDebounce(() => {
         pagination.value.currentPage = 1
         refreshPosts()
     }, 500)
+)
+// Watch => Getting Current Page Changes
+watch(
+    () => pagination.value.currentPage,
+    () => refreshPosts()
 )
 
 useHead({
@@ -42,15 +45,16 @@ useHead({
         <section class="container my-16">
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-white text-2xl font-bold mb-2">Blog</h1>
-                <p class="text-stone-400 font-light">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, ipsum.
+                <p class="text-stone-400 leading-8 font-light md:w-3/6 w-3/4">
+                    Aquí podras ver mis últimas publicaciones, estaré publicando cualquier información que considere
+                    util tanto para mi como para la comunidad.
                 </p>
                 <BaseInput
                     v-model="pagination.search"
                     type="text"
                     name="search"
-                    placeholder="Buscar"
-                    class="w-80 mt-8"
+                    placeholder="Buscar por título..."
+                    class="md:w-3/6 w-3/4 mt-8"
                 />
             </div>
             <div :class="['my-16', posts.length < 1 ? 'flex justify-center text-center' : false]">
@@ -61,7 +65,7 @@ useHead({
                 </template>
                 <template v-else>
                     <div class="w-80 bg-stone-800 rounded-lg border border-stone-700 p-6">
-                        <h1 class="text-white text-2xl font-bold mb-2">Whoops!</h1>
+                        <h1 class="text-white text-2xl font-bold mb-2">¡Whoops!</h1>
                         <p class="text-stone-400 font-light">Sin resultados</p>
                     </div>
                 </template>
