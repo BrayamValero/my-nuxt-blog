@@ -55,7 +55,7 @@ const onInput = (event: any) => emit('update:modelValue', event.target.value)
             :disabled="disabled"
             @input="onInput"
             :class="[getSize]"
-            class="bg-stone-800 border border-stone-700 placeholder:text-stone-300 text-stone-300 rounded-lg focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 disabled:placeholder:text-stone-500"
+            class="bg-stone-800 border border-stone-700 placeholder:text-stone-300 text-stone-300 rounded-lg outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 disabled:placeholder:text-stone-500 duration-300"
         />
     </div>
 </template>

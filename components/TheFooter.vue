@@ -11,11 +11,7 @@ const getCurrentyear = () => {
             <TextParagraph>©{{ getCurrentyear() }} - Brayam Valero. All Rights Reserved.</TextParagraph>
             <ul class="TheFooter-group">
                 <li v-for="{ url, icon } in useSocialLinks" class="TheFooter-item">
-                    <a
-                        :href="url"
-                        class="text-base text-white transition ease-in-out duration-300 hover:text-red-500"
-                        target="_blank"
-                    >
+                    <a :href="url" class="text-base text-white duration-300 hover:text-red-500" target="_blank">
                         <font-awesome-icon :icon="icon" />
                     </a>
                 </li>

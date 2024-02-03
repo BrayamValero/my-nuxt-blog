@@ -125,12 +125,12 @@ watch(isLargeScreen, (isLarge) => {
         }
     }
     &-link {
-        @apply transition ease-in-out duration-300 w-full flex items-center gap-3 text-stone-400 font-light px-4 py-2 decoration-red-600 hover:underline hover:underline-offset-2;
+        @apply duration-300 w-full flex items-center gap-3 text-stone-400 font-light px-4 py-2 decoration-red-600 hover:underline hover:underline-offset-2;
         @screen lg {
             @apply p-0;
         }
         & > svg {
-            @apply text-stone-400 transition ease-in-out duration-300;
+            @apply text-stone-400 duration-300;
             @screen lg {
                 @apply text-white hover:text-red-500;
             }

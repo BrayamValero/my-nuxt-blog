@@ -33,7 +33,7 @@ const getSize = computed<string>(() => {
 })
 
 const getColor = computed(() => {
-    const btnStyle = 'focus:ring-2 focus:outline-none font-medium transition ease-in-out duration-300'
+    const btnStyle = 'focus:ring-2 focus:outline-none font-medium duration-300'
     const colors: any = {
         alternative:
             'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-gray-200 ',
