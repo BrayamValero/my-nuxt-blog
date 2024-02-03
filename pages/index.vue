@@ -64,7 +64,7 @@ useHead({
                     TypeScript me convierten en un desarrollador y diseñador excepcional. Mi versatilidad incluye
                     habilidades de backend, y siempre estoy ansioso por aprender nuevas tecnologías.
                 </TextSubtitle>
-                <BaseButton class="mt-6" variant="red" size="lg" rounded>
+                <BaseButton class="mt-6" variant="red" rounded>
                     Ver Curriculum
                     <font-awesome-icon icon="fa-solid fa-arrow-right" class="ms-1" />
                 </BaseButton>
