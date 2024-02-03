@@ -11,14 +11,14 @@ const getRounded = computed<string | boolean>(() => (props.rounded ? 'rounded-fu
 const getColor = computed(() => {
     const badgeStyle = 'text-xs py-1 px-2 inline-block leading-none'
     const colors: any = {
-        alternative: 'text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-400',
-        dark: 'text-white bg-gray-800 dark:bg-gray-800',
-        light: 'text-gray-900 bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600',
-        blue: 'text-white bg-blue-700 dark:bg-blue-600',
+        alternative: 'text-gray-900 bg-white',
+        dark: 'text-white bg-gray-800',
+        light: 'text-gray-900 bg-white',
+        blue: 'text-white bg-blue-700',
         yellow: 'text-white bg-yellow-400',
-        red: 'text-white bg-red-700 dark:bg-red-600',
-        green: 'text-white bg-green-700 dark:bg-green-600',
-        purple: 'text-white bg-purple-700 dark:bg-purple-600',
+        red: 'text-white bg-red-700',
+        green: 'text-white bg-green-700',
+        purple: 'text-white bg-purple-700',
     }
 
     return `${colors[props.variant]} ${badgeStyle}`

@@ -4,7 +4,7 @@ const route: any = useRoute()
 // [Ref] => Getting Pagination
 const pagination: any = ref({
     search: '',
-    perPage: 2,
+    perPage: 3,
     currentPage: ref(parseInt(route.query.page || 1)),
 })
 
@@ -58,7 +58,6 @@ useHead({
                         type="text"
                         name="search"
                         placeholder="Buscar por título..."
-                        class=""
                     />
                 </div>
             </div>
