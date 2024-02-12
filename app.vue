@@ -5,9 +5,9 @@ const description = 'Brayam Valero, Software Developer, con más de 6 años de e
 
 const ogTitle = 'Brayam Valero | Software Developer | Vue, Nuxt & TypeScript'
 
-const twitterDescription = 'Sitio web donde publicaré contenido referente a Vue, Nuxt, TypeScript y otras tecnologias'
+const xDescription = 'Sitio web donde publicaré contenido referente a Vue, Nuxt, TypeScript y otras tecnologias'
 
-const twitterCard = 'https://res.cloudinary.com/brayamvalero/image/upload/f_auto,q_auto/v1675266048/test'
+const xCard = 'https://res.cloudinary.com/brayamvalero/image/upload/f_auto,q_auto/v1675266048/pokemon-banner'
 
 const mySite = 'https://brayamvalero.dev/'
 
@@ -43,7 +43,7 @@ useHead({
         },
         {
             property: 'og:image',
-            content: twitterCard,
+            content: xCard,
         },
         // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
         { name: 'twitter:site', content: '@brayamvalero' },
@@ -58,11 +58,11 @@ useHead({
         },
         {
             name: 'twitter:description',
-            content: twitterDescription,
+            content: xDescription,
         },
         {
             name: 'twitter:image',
-            content: twitterCard,
+            content: xCard,
         },
     ],
     link: [
