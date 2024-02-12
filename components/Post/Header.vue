@@ -16,7 +16,7 @@ const createdAtFormatted = computed(() => {
             {{ createdAtFormatted }}
         </TextCaption>
         <div class="my-4">
-            <TextHeading variant="dark">{{ post.title }}</TextHeading>
+            <TextHeading tag="h1" variant="dark">{{ post.title }}</TextHeading>
             <TextSubtitle>{{ post.description }}</TextSubtitle>
         </div>
         <div class="flex gap-2">

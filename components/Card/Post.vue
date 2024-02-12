@@ -21,9 +21,10 @@ const createdAtFormatted = computed(() => `Publicado el ${useFormattedDate(props
             <NuxtImg
                 :provider="provider"
                 :src="image"
-                :alt="'img_' + title"
+                :alt="'Image - ' + title"
                 @click="navigateToPost"
                 class="rounded-t-lg w-full h-48 object-cover cursor-pointer shadow"
+                loading="lazy"
             />
             <div class="flex flex-wrap gap-2 absolute bottom-4 left-4">
                 <BaseBadge v-for="tag in tags" variant="red" class="cursor-pointer" rounded>
@@ -37,7 +38,7 @@ const createdAtFormatted = computed(() => `Publicado el ${useFormattedDate(props
                     {{ title }}
                 </NuxtLink>
             </h2>
-            <TextParagraph>
+            <TextParagraph class="line-clamp-2">
                 {{ description }}
             </TextParagraph>
             <TextCaption class="mt-2">

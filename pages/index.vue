@@ -76,10 +76,11 @@ useHead({
                 </BaseButton>
             </div>
             <div class="md:order-last order-first flex justify-center items-center">
-                <img
+                <NuxtImg
+                    alt="Profile Avatar"
+                    provider="cloudinary"
+                    src="/v1675266048/profile-avatar.jpg"
                     class="lg:w-80 lg:h-80 md:w-60 md:h-60 w-36 h-36 rounded-full"
-                    src="/jpg/profile-avatar.jpg"
-                    alt="profile-avatar"
                 />
             </div>
         </section>

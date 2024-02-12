@@ -65,6 +65,12 @@ watch(isLargeScreen, (isLarge) => {
     </nav>
 </template>
 
+<style lang="postcss" scoped>
+.router-link-active {
+    @apply !font-bold;
+}
+</style>
+
 <style lang="postcss">
 .TheNavbar {
     @apply bg-stone-900 border-stone-700 border-b;
