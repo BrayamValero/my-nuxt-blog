@@ -35,7 +35,7 @@ Espero te haya gustado mi historia, ahora, te dejaré con mi background profesio
 
 ### Background Profesional
 
-Actualmente cuento con **4 años de experiencia** en todo lo relacionado con el desarrollo web, específicamente en el área de frontend, sin embargo, he tenido experiencia trabajando como backend developer. Además, tengo un gusto particular por la experiencia de usuario y el pixel perfect al momento de desarrollar aplicaciones, por lo cual, también tengo amplia experiencia desarrollando interfaces
+Actualmente cuento con **6 años de experiencia** en todo lo relacionado con el desarrollo web, específicamente en el área de frontend, sin embargo, he tenido experiencia trabajando como backend developer. Además, tengo un gusto particular por la experiencia de usuario y el pixel perfect al momento de desarrollar aplicaciones, por lo cual, también tengo amplia experiencia desarrollando interfaces
 
 En mis trabajos he asumido roles de fullstack, backend, frontend y UI/UX, sin embargo, mi fuerte siempre es y será la mezcla entre **frontend y diseño UI/UX**, si eres recruiter. esta información puede ser útil para tí.
 
