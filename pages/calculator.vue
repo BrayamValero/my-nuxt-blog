@@ -113,10 +113,7 @@ async function fetchBcvAndBinance(): Promise<PricesResult> {
     return result
 }
 
-onMounted(async () => {
-    console.log('Executting Scrapping...')
-    await fetchBcvAndBinance()
-})
+await fetchBcvAndBinance()
 
 function addListItem() {
     schema.value.list.push({
