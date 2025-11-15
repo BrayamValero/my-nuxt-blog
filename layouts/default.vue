@@ -4,7 +4,9 @@
             <!-- Navbar -->
             <TheNavbar />
             <!-- Content -->
-            <slot />
+            <div class="Default-slot">
+                <slot />
+            </div>
             <!-- Footer -->
             <TheFooter />
         </div>
@@ -23,6 +25,11 @@
     &-overlay {
         height: inherit;
         background-image: linear-gradient(to top, rgba(28, 25, 23, 1), rgba(28, 25, 23, 0.05));
+        display: flex;
+        flex-direction: column;
+    }
+    &-slot {
+        @apply flex-1;
     }
 }
 

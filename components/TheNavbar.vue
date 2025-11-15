@@ -11,6 +11,10 @@ const defaultLinks = [
         title: 'Biografia',
     },
     {
+        to: '/calculator',
+        title: 'Calculadora',
+    },
+    {
         to: '/blog',
         title: 'Blog',
     },
